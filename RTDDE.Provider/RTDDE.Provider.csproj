@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssetBundleDefine.cs" />
     <Compile Include="DAL.cs" />
     <Compile Include="JSON.cs" />
     <Compile Include="MapData.cs" />
