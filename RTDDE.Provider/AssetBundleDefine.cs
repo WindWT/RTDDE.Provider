@@ -56,7 +56,7 @@ namespace RTDDE.Provider
                 return string.Concat(new string[]
 			{
 				text,
-				"Android",
+				"Android/",
 				text2,
 				"/",
 				this.m_FileName,
