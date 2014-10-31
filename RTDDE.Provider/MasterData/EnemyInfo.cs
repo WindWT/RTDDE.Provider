@@ -18,5 +18,7 @@ namespace RTDDE.Provider.MasterData
         public int drop_unit_level;
         public int sp_event_point;
         public int add_attribute_exp;
+        public int attribute;
+        public int unit_exp;
     }
 }

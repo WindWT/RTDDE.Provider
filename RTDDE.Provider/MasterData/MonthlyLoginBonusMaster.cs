@@ -6,7 +6,7 @@ using System.Text;
 namespace RTDDE.Provider.MasterData
 {
     [Serializable]
-    public class LoginBonusMaster
+    public class MonthlyLoginBonusMaster
     {
         public int id;
         public string day;

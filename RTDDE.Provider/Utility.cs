@@ -204,6 +204,11 @@ namespace RTDDE.Provider
         ElementBind = 67,
         AttributeNextAtkUp = 68,
         ShufflePanelAttack = 69,
+        EnemyDmgDefDown = 70,
+        EnemyDmgAllRecovery = 71,
+        EnemyDmgAddWeakness = 72,
+        AttrCorrectionAtk = 73,
+        PfDefenceAndReflect = 74,
     }
     public enum PanelSkillType
     {
@@ -943,7 +948,8 @@ namespace RTDDE.Provider
             int year = i % 10000;
             DateTime t = new DateTime(year, month, day, hour, 0, 0, isUTCDate ? DateTimeKind.Utc : DateTimeKind.Unspecified);
             TimeZoneInfo jpZone = TimeZoneInfo.FindSystemTimeZoneById("Tokyo Standard Time");
-            if (isUTCDate) {
+            if (isUTCDate)
+            {
                 t = UseLocalTime ? t.ToLocalTime() : TimeZoneInfo.ConvertTime(t, jpZone);
             }
             else
@@ -1075,7 +1081,7 @@ namespace RTDDE.Provider
                     {
                         return MASTERDB.SHOP_PRODUCT_MASTER_ANDROID;
                     }
-                case "LoginBonusMaster":
+                case "MonthlyLoginBonusMaster":
                     {
                         return MASTERDB.LOGIN_BONUS_MASTER;
                     }
@@ -1119,6 +1125,19 @@ namespace RTDDE.Provider
                     {
                         return MASTERDB.ACCESSORY_MASTER;
                     }
+                case "TalkDialogHeaderMaster":
+                    { return MASTERDB.TALK_DIALOG_MASTER; }
+                case "LimitSkillMaster":
+                    { return MASTERDB.LIMIT_SKILL_MASTER; }
+                case "LimitSkillRankMaster":
+                    { return MASTERDB.LIMIT_SKILL_RANK_MASTER; }
+                case "QuestAreaMaster":
+                    { return MASTERDB.QUEST_AREA_MASTER; }
+                case "QuestFieldMaster":
+                    { return MASTERDB.QUEST_FIELD_MASTER; }
+                case "QuestWorldMaster":
+                    { return MASTERDB.QUEST_WORLD_MASTER; }
+
                 //case MASTERDB.MAX   //not exist
                 default:
                     {
@@ -1186,7 +1205,7 @@ namespace RTDDE.Provider
                     }
                 case MASTERDB.LOGIN_BONUS_MASTER:
                     {
-                        return typeof(LoginBonusMaster);
+                        return typeof(MonthlyLoginBonusMaster);
                     }
                 case MASTERDB.SEQUENCE_LOGIN_BONUS_MASTER:
                     {
@@ -1228,6 +1247,18 @@ namespace RTDDE.Provider
                     {
                         return typeof(AccessoryMaster);
                     }
+                case MASTERDB.TALK_DIALOG_MASTER:
+                    { return typeof(TalkDialogHeaderMaster); }
+                case MASTERDB.LIMIT_SKILL_MASTER:
+                    { return typeof(LimitSkillMaster); }
+                case MASTERDB.LIMIT_SKILL_RANK_MASTER:
+                    { return typeof(LimitSkillRankMaster); }
+                case MASTERDB.QUEST_AREA_MASTER:
+                    { return typeof(QuestAreaMaster); }
+                case MASTERDB.QUEST_FIELD_MASTER:
+                    { return typeof(QuestFieldMaster); }
+                case MASTERDB.QUEST_WORLD_MASTER:
+                    { return typeof(QuestWorldMaster); }
                 //case MASTERDB.MAX   //not exist
                 default:
                     {

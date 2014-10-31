@@ -11,8 +11,10 @@ namespace RTDDE.Provider.MasterData
         public const int OPEN_CONDITIONS_MAX = 8;
         public int i;
         public string n;
+        public string ns;
         public int d;
         public int c;
+        public int pai;
         public int m;
         public int s;
         public int so;
@@ -23,6 +25,7 @@ namespace RTDDE.Provider.MasterData
         public int f;
         public int dio;
         public int df;
+        public int el;
         public int ds;
         public int sp;
         public int od;
@@ -86,6 +89,7 @@ namespace RTDDE.Provider.MasterData
         public int hi;
         public int hl;
         public int eci;
+        public int eef;
 
         public int id
         {
@@ -111,6 +115,18 @@ namespace RTDDE.Provider.MasterData
             }
         }
 
+        public string name_sub
+        {
+            get
+            {
+                return this.ns;
+            }
+            set
+            {
+                this.ns = value;
+            }
+        }
+
         public int division
         {
             get
@@ -132,6 +148,18 @@ namespace RTDDE.Provider.MasterData
             set
             {
                 this.c = value;
+            }
+        }
+
+        public int parent_area_id
+        {
+            get
+            {
+                return this.pai;
+            }
+            set
+            {
+                this.pai = value;
             }
         }
 
@@ -252,6 +280,18 @@ namespace RTDDE.Provider.MasterData
             set
             {
                 this.df = value;
+            }
+        }
+
+        public int quest_difficulty
+        {
+            get
+            {
+                return this.el;
+            }
+            set
+            {
+                this.el = value;
             }
         }
 
@@ -1008,6 +1048,18 @@ namespace RTDDE.Provider.MasterData
             set
             {
                 this.eci = value;
+            }
+        }
+
+        public int event_effect_flag
+        {
+            get
+            {
+                return this.eef;
+            }
+            set
+            {
+                this.eef = value;
             }
         }
     }

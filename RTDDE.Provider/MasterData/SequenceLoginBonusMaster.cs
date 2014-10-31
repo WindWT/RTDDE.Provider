@@ -11,5 +11,7 @@ namespace RTDDE.Provider.MasterData
         public int id;
         public int type;
         public int num;
+        public int add_day;
+        public string text;
     }
 }

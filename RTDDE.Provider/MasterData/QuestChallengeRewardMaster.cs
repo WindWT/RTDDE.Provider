@@ -14,5 +14,6 @@ namespace RTDDE.Provider.MasterData
         public int present_type;
         public int present_param_0;
         public int present_param_1;
+        public int parent_area_id;
     }
 }

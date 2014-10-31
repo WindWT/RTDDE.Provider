@@ -28,6 +28,9 @@ namespace RTDDE.Provider
         QUEST_CHALLENGE_MASTER = 32,
         QUEST_CHALLENGE_REWARD_MASTER = 33,
         SP_EVENT_MASTER = 34,
+        QUEST_AREA_MASTER = 37,
+        QUEST_FIELD_MASTER = 38,
+        QUEST_WORLD_MASTER = 39,
         GACHA_ITEM_MASTER = 40,  //not exist
         GACHA_TABLE_MASTER = 41,  //not exist
         SHOP_PRODUCT_MASTER = 42,   //exist in iOS only
@@ -36,6 +39,9 @@ namespace RTDDE.Provider
         SEQUENCE_LOGIN_BONUS_MASTER = 52,
         USER_RANK_MASTER = 60,
         LEVELDATA_LIST_MASTER = 70,  //not exist
+        TALK_DIALOG_MASTER = 80,
         GLOBAL_PARAM_MASTER = 90,
+        LIMIT_SKILL_MASTER = 91,
+        LIMIT_SKILL_RANK_MASTER = 92,
     }
 }

@@ -48,6 +48,7 @@ namespace RTDDE.Provider.MasterData
         public int ps;
         public int a;
         public int p;
+        public int lim;
         public string sto;
         public string ct;
         public string sc;
@@ -535,6 +536,18 @@ namespace RTDDE.Provider.MasterData
             set
             {
                 this.p = value;
+            }
+        }
+
+        public int limit_skill_id
+        {
+            get
+            {
+                return this.lim;
+            }
+            set
+            {
+                this.lim = value;
             }
         }
 
