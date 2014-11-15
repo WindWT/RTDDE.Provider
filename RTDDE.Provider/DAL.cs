@@ -102,9 +102,7 @@ namespace RTDDE.Provider
             FieldInfo[] fields = typeof(T).GetFields();
             PropertyInfo[] properties = typeof(T).GetProperties();
 
-            bool isFieldOnly = (properties.Length == 0);
             T result = new T();
-
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
@@ -118,15 +116,15 @@ namespace RTDDE.Provider
                         {
                             string name = names[i];
                             object value = reader.GetValue(i);
-                            if (isFieldOnly)
-                            {
-                                FieldInfo field = fields.First(o => o.Name == name);
-                                field.SetValue(result, Convert.ChangeType(value, field.FieldType));
-                            }
-                            else
+                            if (typeof(T).IsUseProperty())
                             {
                                 PropertyInfo property = properties.First(o => o.Name == name);
                                 property.SetValue(result, Convert.ChangeType(value, property.PropertyType), null);
+                            }
+                            else
+                            {
+                                FieldInfo field = fields.First(o => o.Name == name);
+                                field.SetValue(result, Convert.ChangeType(value, field.FieldType));
                             }
                         }
                     }
@@ -145,9 +143,7 @@ namespace RTDDE.Provider
             FieldInfo[] fields = typeof(T).GetFields();
             PropertyInfo[] properties = typeof(T).GetProperties();
 
-            bool isFieldOnly = (properties.Length == 0);
             List<T> list = new List<T>();
-
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
@@ -162,15 +158,15 @@ namespace RTDDE.Provider
                         {
                             string name = names[i];
                             object value = reader.GetValue(i);
-                            if (isFieldOnly)
-                            {
-                                FieldInfo field = fields.First(o => o.Name == name);
-                                field.SetValue(obj, Convert.ChangeType(value, field.FieldType));
-                            }
-                            else
+                            if (typeof(T).IsUseProperty())
                             {
                                 PropertyInfo property = properties.First(o => o.Name == name);
                                 property.SetValue(obj, Convert.ChangeType(value, property.PropertyType), null);
+                            }
+                            else
+                            {
+                                FieldInfo field = fields.First(o => o.Name == name);
+                                field.SetValue(obj, Convert.ChangeType(value, field.FieldType));
                             }
                         }
                         list.Add(obj);
@@ -185,7 +181,6 @@ namespace RTDDE.Provider
             FieldInfo[] fields = typeof(T).GetFields();
             PropertyInfo[] properties = typeof(T).GetProperties();
 
-            bool isFieldOnly = (properties.Length == 0);
             string tableName = typeof(T).Name == typeof(LevelDataMaster).Name ? "LEVEL_DATA_MASTER" : Utility.Type2Enum(typeof(T)).ToString();
             string[] columnNames = GetColumnNames(typeof(T));
             string pkName = GetColumnPKName(typeof(T));
@@ -221,7 +216,7 @@ namespace RTDDE.Provider
                     foreach (string name in columnNames)
                     {
                         string columnName = name;
-                        object columnValue = isFieldOnly ? fields.First(o => o.Name == name).GetValue(obj) : properties.First(o => o.Name == name).GetValue(obj, null);
+                        object columnValue = typeof(T).IsUseProperty() ? properties.First(o => o.Name == name).GetValue(obj, null) : fields.First(o => o.Name == name).GetValue(obj);
                         sqlColumnName.Append(columnName);
                         sqlColumnName.Append(",");
                         sqlColumnValue.Append("@" + columnName);
@@ -248,7 +243,6 @@ namespace RTDDE.Provider
             FieldInfo[] fields = typeof(T).GetFields();
             PropertyInfo[] properties = typeof(T).GetProperties();
 
-            bool isFieldOnly = (properties.Length == 0);
             string tableName = typeof(T).Name == typeof(LevelDataMaster).Name ? "LEVEL_DATA_MASTER" : Utility.Type2Enum(typeof(T)).ToString();
             string[] columnNames = GetColumnNames(typeof(T));
             string pkName = GetColumnPKName(typeof(T));
@@ -286,7 +280,7 @@ namespace RTDDE.Provider
                         foreach (string name in columnNames)
                         {
                             string columnName = name;
-                            object columnValue = isFieldOnly ? fields.First(o => o.Name == name).GetValue(obj) : properties.First(o => o.Name == name).GetValue(obj, null);
+                            object columnValue = typeof(T).IsUseProperty() ? properties.First(o => o.Name == name).GetValue(obj, null) : fields.First(o => o.Name == name).GetValue(obj);
                             sqlColumnName.Append(columnName);
                             sqlColumnName.Append(",");
                             sqlColumnValue.Append("@" + columnName);
@@ -345,21 +339,19 @@ namespace RTDDE.Provider
             FieldInfo[] fields = type.GetFields();
             PropertyInfo[] properties = type.GetProperties();
 
-            bool isFieldOnly = (properties.Length == 0);
-
             List<string> names = new List<string>();
-            if (isFieldOnly)
-            {
-                foreach (FieldInfo field in fields)
-                {
-                    names.Add(field.Name);
-                }
-            }
-            else
+            if (type.IsUseProperty())
             {
                 foreach (PropertyInfo property in properties)
                 {
                     names.Add(property.Name);
+                }
+            }
+            else
+            {
+                foreach (FieldInfo field in fields)
+                {
+                    names.Add(field.Name);
                 }
             }
             return names.ToArray();
@@ -376,33 +368,15 @@ namespace RTDDE.Provider
             FieldInfo[] fields = type.GetFields();
             PropertyInfo[] properties = type.GetProperties();
 
-            bool isFieldOnly = (properties.Length == 0);
-
             string name = "id";
-            if (isFieldOnly)
-            {
-                foreach (FieldInfo field in fields)
-                {
-                    object[] attrs = field.GetCustomAttributes(typeof(DALAttribute), true);
-                    if (attrs.Length > 0)
-                    {
-                        DALAttribute attr = attrs[0] as DALAttribute;
-                        if (attr != null && attr.PrimaryKey == true)
-                        {
-                            name = field.Name;
-                            break;
-                        }
-                    }
-                }
-            }
-            else
+            if (type.IsUseProperty())
             {
                 foreach (PropertyInfo property in properties)
                 {
-                    object[] attrs = property.GetCustomAttributes(typeof(DALAttribute), true);
+                    object[] attrs = property.GetCustomAttributes(typeof(DALColumnAttribute), true);
                     if (attrs.Length > 0)
                     {
-                        DALAttribute attr = attrs[0] as DALAttribute;
+                        DALColumnAttribute attr = attrs[0] as DALColumnAttribute;
                         if (attr != null && attr.PrimaryKey == true)
                         {
                             name = property.Name;
@@ -411,10 +385,45 @@ namespace RTDDE.Provider
                     }
                 }
             }
+            else
+            {
+                foreach (FieldInfo field in fields)
+                {
+                    object[] attrs = field.GetCustomAttributes(typeof(DALColumnAttribute), true);
+                    if (attrs.Length > 0)
+                    {
+                        DALColumnAttribute attr = attrs[0] as DALColumnAttribute;
+                        if (attr != null && attr.PrimaryKey == true)
+                        {
+                            name = field.Name;
+                            break;
+                        }
+                    }
+                }
+            }
             return name;
         }
+        private static bool IsUseProperty(this Type type)
+        {
+            bool result = false;
+            object[] typeattrs = type.GetCustomAttributes(typeof(DALAttribute), true);
+            if (typeattrs.Length > 0)
+            {
+                DALAttribute attr = typeattrs[0] as DALAttribute;
+                if (attr != null)
+                {
+                    result = attr.UseProperty;
+                }
+            }
+            return result;
+        }
     }
+
     public class DALAttribute : Attribute
+    {
+        public bool UseProperty { get; set; }
+    }
+    public class DALColumnAttribute : Attribute
     {
         public bool PrimaryKey { get; set; }
     }

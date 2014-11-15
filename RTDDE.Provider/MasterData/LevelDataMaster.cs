@@ -9,7 +9,7 @@ namespace RTDDE.Provider.MasterData
     [Serializable]
     public class LevelDataMaster
     {
-        [DAL(PrimaryKey = true)]
+        [DALColumn(PrimaryKey = true)]
         public int level_data_id;
         public int format;
         public int start_x;

@@ -6,6 +6,7 @@ using System.Text;
 namespace RTDDE.Provider.MasterData
 {
     [Serializable]
+    [DAL(UseProperty = true)]
     public class QuestMaster
     {
         public const int OPEN_CONDITIONS_MAX = 8;
