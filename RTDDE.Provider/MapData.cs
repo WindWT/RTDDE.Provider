@@ -136,7 +136,8 @@ namespace RTDDE.Provider
                     currentQuestId = JObject.Parse(jsonQuest)["m_QuestID"].ToString();
                 }
             }
-            if (questId == currentQuestId)
+            //if (questId == currentQuestId)
+            if (true)
             {
                 jsonEnemyInfo = dictDrop["QUEST_ENEMY_INFO"].ToString();
             }
