@@ -19,12 +19,12 @@ namespace RTDDE.Provider
         PANEL_SKILL_MASTER = 16,
         PANEL_SKILL_RANK_MASTER = 17,
         ACCESSORY_MASTER = 18,
-        MAX = 19,   //not exist
+        MAX = 19,   //not exist, used for default
         ENEMY_UNIT_MASTER = 20,
         ENEMY_TABLE_MASTER,  //not exist
         ENEMY_DROP_MASTER = 22,  //not exist
         QUEST_MASTER = 30,
-        QUEST_CATEGORY_MASTER = 31,
+        //QUEST_CATEGORY_MASTER = 31,   //not exist after 5.1
         QUEST_CHALLENGE_MASTER = 32,
         QUEST_CHALLENGE_REWARD_MASTER = 33,
         SP_EVENT_MASTER = 34,

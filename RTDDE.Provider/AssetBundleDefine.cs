@@ -38,9 +38,9 @@ namespace RTDDE.Provider
                 }
                 else
                 {
-                    if (ver >= 21)
+                    if (ver >= 22)
                     {
-                        this.m_Version = AssetBundleDefine.E_BUNDLE_VERSION.V1030;
+                        this.m_Version = AssetBundleDefine.E_BUNDLE_VERSION.V1031;
                     }
                     else
                     {
@@ -91,6 +91,7 @@ namespace RTDDE.Provider
             V1028,
             V1029,
             V1030,
+            V1031,
             MAX
         }
         private const string mc_RootDirPath = "http://www.acquirespdl.jp/RTD/DLC/";
@@ -116,7 +117,8 @@ namespace RTDDE.Provider
 		"V1027pfH3RRYQaOl9OWDMH6U5j1ELEWNOU6NI",
 		"V1028iHJx4Umb7ns20EtNB3Qh797yHlsTNOCH",
 		"V1029ToRU8oDwA3FdtTX9wFKxxEyVbb4UnlnO",
-		"V1030A0ui3BCFdpgig2INGDBOSOgtNvJHLQBj"
+		"V1030A0ui3BCFdpgig2INGDBOSOgtNvJHLQBj",
+		"V1031wlkc1YB6cB0nGXtglkmixajjhA0u5sT9"
 	};
         public static readonly AssetBundleDefine.AssetBundleInfo[] m_BasicBundles = new AssetBundleDefine.AssetBundleInfo[]
 	{
@@ -221,12 +223,14 @@ namespace RTDDE.Provider
 		new AssetBundleDefine.AssetBundleInfo(AssetBundleDefine.E_BUNDLE_VERSION.V1029, "971-980"),
 		new AssetBundleDefine.AssetBundleInfo(AssetBundleDefine.E_BUNDLE_VERSION.V1029, "981-990"),
 		new AssetBundleDefine.AssetBundleInfo(AssetBundleDefine.E_BUNDLE_VERSION.V1029, "991-1000"),
-		new AssetBundleDefine.AssetBundleInfo(AssetBundleDefine.E_BUNDLE_VERSION.V1030, "1001-1010"),
-		new AssetBundleDefine.AssetBundleInfo(AssetBundleDefine.E_BUNDLE_VERSION.V1030, "1011-1020"),
+		new AssetBundleDefine.AssetBundleInfo(AssetBundleDefine.E_BUNDLE_VERSION.V1031, "1001-1010"),
+		new AssetBundleDefine.AssetBundleInfo(AssetBundleDefine.E_BUNDLE_VERSION.V1031, "1011-1020"),
 		new AssetBundleDefine.AssetBundleInfo(AssetBundleDefine.E_BUNDLE_VERSION.V1030, "1021-1030"),
 		new AssetBundleDefine.AssetBundleInfo(AssetBundleDefine.E_BUNDLE_VERSION.V1030, "1031-1040"),
 		new AssetBundleDefine.AssetBundleInfo(AssetBundleDefine.E_BUNDLE_VERSION.V1030, "1041-1050"),
-		new AssetBundleDefine.AssetBundleInfo(AssetBundleDefine.E_BUNDLE_VERSION.V1030, "1051-1060")
+		new AssetBundleDefine.AssetBundleInfo(AssetBundleDefine.E_BUNDLE_VERSION.V1031, "1051-1060"),
+		new AssetBundleDefine.AssetBundleInfo(AssetBundleDefine.E_BUNDLE_VERSION.V1031, "1061-1070"),
+		new AssetBundleDefine.AssetBundleInfo(AssetBundleDefine.E_BUNDLE_VERSION.V1031, "1071-1080")
 	};
         public static readonly AssetBundleDefine.AssetBundleInfo[] m_EnemyBundles = new AssetBundleDefine.AssetBundleInfo[]
 	{
@@ -685,7 +689,7 @@ namespace RTDDE.Provider
 		new AssetBundleDefine.AssetBundleInfo(AssetBundleDefine.E_BUNDLE_VERSION.V1028, "Icon_Atlas_006"),
 		new AssetBundleDefine.AssetBundleInfo(AssetBundleDefine.E_BUNDLE_VERSION.V1028, "Icon_Atlas_007"),
 		new AssetBundleDefine.AssetBundleInfo(AssetBundleDefine.E_BUNDLE_VERSION.V1029, "Icon_Atlas_008"),
-		new AssetBundleDefine.AssetBundleInfo(AssetBundleDefine.E_BUNDLE_VERSION.V1030, "Icon_Atlas_009")
+		new AssetBundleDefine.AssetBundleInfo(AssetBundleDefine.E_BUNDLE_VERSION.V1031, "Icon_Atlas_009")
 	};
         public static readonly AssetBundleDefine.AssetBundleInfo[] m_AcceIconBundles = new AssetBundleDefine.AssetBundleInfo[]
 	{

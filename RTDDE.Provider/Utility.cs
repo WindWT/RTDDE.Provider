@@ -131,7 +131,8 @@ namespace RTDDE.Provider
         LIFE_AND_ATK_ATTR_ENHANCE = 103,
         SOUL_DRAIN_AND_ATTR_UP_SOUL = 104,
         DAMAGE_REDUCTION_AND_REFLECTION = 105,
-        BUFFER = 106,
+        SLASH_PANEL_ATTACK_UP = 106,
+        BUFFER = 107,
     }
     public enum ActiveSkillType
     {
@@ -244,6 +245,10 @@ namespace RTDDE.Provider
         PANEL_CHANGE_RANDOM = 30,
         PANEL_CHANGE_UPPER = 31,
         PANEL_CHANGE_LOWER = 32,
+        LIMIT_LIFE_GUARD = 33,
+        SPPANEL_USE_ATTACK_UP = 34,
+        SPPANEL_USE_LIFERECOVER_FIX = 35,
+        SPPANEL_USE_ENEMY_DAMAGE = 36,
     }
     public enum AccessoryType
     {
@@ -331,6 +336,7 @@ namespace RTDDE.Provider
         POK_HED,
         YORISHIRO,
         POK_CHIBISHIRO,
+        POK_FGT,
         PLAYER_END,
         MS01SLA,
         MS01SQU,
@@ -1067,10 +1073,10 @@ namespace RTDDE.Provider
                     {
                         return MASTERDB.QUEST_MASTER;
                     }
-                case "QuestCategoryMaster":
-                    {
-                        return MASTERDB.QUEST_CATEGORY_MASTER;
-                    }
+                //case "QuestCategoryMaster":
+                //    {
+                //        return MASTERDB.QUEST_CATEGORY_MASTER;
+                //    }
                 //case MASTERDB.GACHA_ITEM_MASTER:    //not exist
                 //case MASTERDB.GACHA_TABLE_MASTER:   //not exist
                 case "ShopProductMaster":  //exist in iOS only
@@ -1189,10 +1195,10 @@ namespace RTDDE.Provider
                     {
                         return typeof(QuestMaster);
                     }
-                case MASTERDB.QUEST_CATEGORY_MASTER:
-                    {
-                        return typeof(QuestCategoryMaster);
-                    }
+                //case MASTERDB.QUEST_CATEGORY_MASTER:
+                //    {
+                //        return typeof(QuestCategoryMaster);
+                //    }
                 //case MASTERDB.GACHA_ITEM_MASTER:    //not exist
                 //case MASTERDB.GACHA_TABLE_MASTER:   //not exist
                 case MASTERDB.SHOP_PRODUCT_MASTER:  //exist in iOS only
