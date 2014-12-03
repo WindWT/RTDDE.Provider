@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace RTDDE.Provider.Enums
+{
+    public enum AccessoryType
+    {
+        NONE,
+        BASE_PARAM_FIXED,
+        BASE_PARAM_RATE,
+        ELEMENT_DRAGON_ENHANCE,
+        SUPER_ATTACK_GRADEUP,
+        CUTIN_GRADEUP,
+        CHAIN_SUPPORT,
+        WEAKNESS_ATTACK,
+        ELEMENTAL_ATTACK,
+        SUPER_DEFENCE,
+        FIRST_ATTACK,
+        ATTACK_ENEMY_DELAY,
+        ATTACK_LIFE_RECOVER,
+        ATTACK_POWER_RISE,
+        COUNTERRATE_ATTACKUP,
+        ATTRIBUTE_CORRECTION_STARTUP,
+        TREASURE_SOUL,
+        ATTACK_ENHANCE_STEPS,
+        ATTACK_ENHANCE_KNOCKDOWN,
+        MOB_KILLER,
+        ELE_DRA_ENH_PARAM_FIXED,
+        CHAIN_SUPPORT_ELE_ENH_PARAM,
+        WEAKNESS_ATTACK_ELE_ENH_PARAM,
+        COUNTERRATEUP_ELE_ENH_PARAM,
+        ATTRI_PANEL_GRADEUP_ENH_PARAM,
+        ELEMENTAL_ATTACK_ENH_PARAM,
+        SYNERGY_ENHANCE_ENH_PARAM,
+        ENHANCE_DOUBLING_ENH_PARAM,
+        MAX,
+    }
+}
