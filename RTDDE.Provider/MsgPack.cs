@@ -1,21 +1,15 @@
-﻿using RTDDE.Provider.MasterData;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.IO;
-using System.Linq;
-using System.Text;
-using MsgPack;
+﻿using MsgPack;
 using MsgPack.Serialization;
+using System.IO;
 
 namespace RTDDE.Provider
 {
     public static class MsgBytes
     {
-        public static string ToJson(Stream MsgPackStream)
+        public static string ToJson(Stream msgPackStream)
         {
             var msg = MessagePackSerializer.Get<MessagePackObject>();
-            return msg.Unpack(MsgPackStream).ToString();
+            return msg.Unpack(msgPackStream).ToString();
         }
     }
 }

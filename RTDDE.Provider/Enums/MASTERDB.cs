@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+// ReSharper disable InconsistentNaming
 
-namespace RTDDE.Provider
+namespace RTDDE.Provider.Enums
 {
-    /// <summary>
-    /// MDB对应的枚举
-    /// </summary>
     public enum MASTERDB
     {
         UNIT_MASTER = 10,

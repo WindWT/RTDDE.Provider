@@ -6,21 +6,22 @@ using System.Text;
 using System.Data.SQLite;
 using System.Reflection;
 using RTDDE.Provider.MasterData;
+using RTDDE.Provider.Enums;
 
 namespace RTDDE.Provider
 {
     public static class DAL
     {
-        private static string connectionString = "Data Source=RTD.db";
+        private static string _connectionString = "Data Source=RTD.db";
         public static string ConnectionString
         {
             get
             {
-                return connectionString;
+                return _connectionString;
             }
             set
             {
-                connectionString = value;
+                _connectionString = value;
             }
         }
 
@@ -48,7 +49,7 @@ namespace RTDDE.Provider
         /// <returns></returns>
         public static T Get<T>(string sql, List<SQLiteParameter> paras)
         {
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            using (SQLiteConnection connection = new SQLiteConnection(_connectionString))
             {
                 connection.Open();
                 SQLiteCommand cmd = new SQLiteCommand(sql, connection);
@@ -74,7 +75,7 @@ namespace RTDDE.Provider
         public static DataTable GetDataTable(string sql, List<SQLiteParameter> paras)
         {
             DataTable dt = new DataTable();
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            using (SQLiteConnection connection = new SQLiteConnection(_connectionString))
             {
                 connection.Open();
                 SQLiteCommand cmd = new SQLiteCommand(sql, connection);
@@ -103,7 +104,7 @@ namespace RTDDE.Provider
             PropertyInfo[] properties = typeof(T).GetProperties();
 
             T result = new T();
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            using (SQLiteConnection connection = new SQLiteConnection(_connectionString))
             {
                 connection.Open();
                 SQLiteCommand cmd = new SQLiteCommand(sql, connection);
@@ -144,7 +145,7 @@ namespace RTDDE.Provider
             PropertyInfo[] properties = typeof(T).GetProperties();
 
             List<T> list = new List<T>();
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            using (SQLiteConnection connection = new SQLiteConnection(_connectionString))
             {
                 connection.Open();
                 SQLiteCommand cmd = new SQLiteCommand(sql, connection);
@@ -181,11 +182,11 @@ namespace RTDDE.Provider
             FieldInfo[] fields = typeof(T).GetFields();
             PropertyInfo[] properties = typeof(T).GetProperties();
 
-            string tableName = typeof(T).Name == typeof(LevelDataMaster).Name ? "LEVEL_DATA_MASTER" : Utility.Type2Enum(typeof(T)).ToString();
+            string tableName = typeof(T).Name == typeof(LevelDataMaster).Name ? "LEVEL_DATA_MASTER" : Converter.Type2Enum(typeof(T)).ToString();
             string[] columnNames = GetColumnNames(typeof(T));
             string pkName = GetColumnPKName(typeof(T));
 
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            using (SQLiteConnection connection = new SQLiteConnection(_connectionString))
             {
                 connection.Open();
                 using (SQLiteTransaction trans = connection.BeginTransaction())
@@ -243,11 +244,11 @@ namespace RTDDE.Provider
             FieldInfo[] fields = typeof(T).GetFields();
             PropertyInfo[] properties = typeof(T).GetProperties();
 
-            string tableName = typeof(T).Name == typeof(LevelDataMaster).Name ? "LEVEL_DATA_MASTER" : Utility.Type2Enum(typeof(T)).ToString();
+            string tableName = typeof(T).Name == typeof(LevelDataMaster).Name ? "LEVEL_DATA_MASTER" : Converter.Type2Enum(typeof(T)).ToString();
             string[] columnNames = GetColumnNames(typeof(T));
             string pkName = GetColumnPKName(typeof(T));
 
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            using (SQLiteConnection connection = new SQLiteConnection(_connectionString))
             {
                 connection.Open();
                 using (SQLiteTransaction trans = connection.BeginTransaction())
@@ -304,7 +305,7 @@ namespace RTDDE.Provider
 
         public static void DropTable(string tableName)
         {
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            using (SQLiteConnection connection = new SQLiteConnection(_connectionString))
             {
                 connection.Open();
                 SQLiteCommand command = new SQLiteCommand(String.Format("DROP TABLE IF EXISTS {0}", tableName), connection);
@@ -331,8 +332,7 @@ namespace RTDDE.Provider
         /// <summary>
         /// 从实体中获取表列名
         /// </summary>
-        /// <param name="fields"></param>
-        /// <param name="properties"></param>
+        /// <param name="type"></param>
         /// <returns></returns>
         private static string[] GetColumnNames(Type type)
         {
@@ -340,28 +340,16 @@ namespace RTDDE.Provider
             PropertyInfo[] properties = type.GetProperties();
 
             List<string> names = new List<string>();
-            if (type.IsUseProperty())
-            {
-                foreach (PropertyInfo property in properties)
-                {
-                    names.Add(property.Name);
-                }
-            }
-            else
-            {
-                foreach (FieldInfo field in fields)
-                {
-                    names.Add(field.Name);
-                }
-            }
+            names.AddRange(type.IsUseProperty()
+                ? properties.Select(property => property.Name)
+                : fields.Select(field => field.Name));
             return names.ToArray();
         }
 
         /// <summary>
         /// 从实体中获取表主键列名
         /// </summary>
-        /// <param name="fields"></param>
-        /// <param name="properties"></param>
+        /// <param name="type"></param>
         /// <returns></returns>
         private static string GetColumnPKName(Type type)
         {

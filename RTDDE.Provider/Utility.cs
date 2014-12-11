@@ -39,18 +39,7 @@ namespace RTDDE.Provider
     }
     public class Utility
     {
-        private static bool useLocalTime = false;
-        public static bool UseLocalTime
-        {
-            get
-            {
-                return useLocalTime;
-            }
-            set
-            {
-                useLocalTime = value;
-            }
-        }
+        public static bool UseLocalTime { get; set; }
         public static OpenType ParseOpentype(string type, string param, int group)
         {
             OpenType result = new OpenType();
@@ -219,15 +208,9 @@ namespace RTDDE.Provider
         }
         public static string ParseAttributetype(int attributetype)
         {
-            if (attributetype <= 5)
-            {
-                return ParseRealAttributetype(attributetype).ToString();
-            }
-            else
-            {
-                return attributetype.ToString();
-            }
+            return attributetype <= 5 ? ParseRealAttributetype(attributetype).ToString() : attributetype.ToString();
         }
+
         private static UnitAttribute ParseRealAttributetype(int attributetype)
         {
             switch (attributetype)
@@ -248,15 +231,9 @@ namespace RTDDE.Provider
         }
         public static string ParseStyletype(int styletype)
         {
-            if (styletype == 0)
-            {
-                return "NONE";
-            }
-            else
-            {
-                return ParseRealStyletype(styletype).ToString();
-            }
+            return styletype == 0 ? "NONE" : ParseRealStyletype(styletype).ToString();
         }
+
         private static Class ParseRealStyletype(int styletype)
         {
             switch (styletype)
@@ -357,6 +334,7 @@ namespace RTDDE.Provider
                 default: return "UNKNOWN_" + kind.ToString();
             }
         }
+        [Obsolete]
         public static string ParseZBTNKind(int kind)
         {
             switch (kind)
@@ -392,7 +370,7 @@ namespace RTDDE.Provider
         {
             return ParseRTDDate(rtdDate, false);
         }
-        public static string ParseRTDDate(string rtdDate, bool isUTCDate)
+        public static string ParseRTDDate(string rtdDate, bool isUtcDate)
         {
             if (string.IsNullOrWhiteSpace(rtdDate))
             {
@@ -410,9 +388,9 @@ namespace RTDDE.Provider
             int month = i % 100;
             i /= 100;
             int year = i % 10000;
-            DateTime t = new DateTime(year, month, day, hour, 0, 0, isUTCDate ? DateTimeKind.Utc : DateTimeKind.Unspecified);
+            DateTime t = new DateTime(year, month, day, hour, 0, 0, isUtcDate ? DateTimeKind.Utc : DateTimeKind.Unspecified);
             TimeZoneInfo jpZone = TimeZoneInfo.FindSystemTimeZoneById("Tokyo Standard Time");
-            if (isUTCDate)
+            if (isUtcDate)
             {
                 t = UseLocalTime ? t.ToLocalTime() : TimeZoneInfo.ConvertTime(t, jpZone);
             }
@@ -439,6 +417,14 @@ namespace RTDDE.Provider
             }
             return sb.ToString().Trim();
         }
+
+        private static readonly Regex RichTextRegex = new Regex(@"(\[[a-zA-Z0-9]{6}\])(.*?)(\[-\])", RegexOptions.Compiled);
+
+        static Utility()
+        {
+            UseLocalTime = false;
+        }
+
         public static string ParseText(string text)
         {
             if (string.IsNullOrEmpty(text))
@@ -446,8 +432,7 @@ namespace RTDDE.Provider
                 return String.Empty;
             }
             text = text.Replace(@"\n", "\n");
-            Regex r = new Regex(@"(\[[a-zA-Z0-9]{6}\])(.*?)(\[-\])");
-            return r.Replace(text, new MatchEvaluator(ParseTextEvaluator));
+            return RichTextRegex.Replace(text, new MatchEvaluator(ParseTextEvaluator));
         }
         public static string ParseTextEvaluator(Match m)
         {
@@ -484,249 +469,6 @@ namespace RTDDE.Provider
                             return true;
                         default:
                             return num == 45;
-                    }
-            }
-        }
-        public static MASTERDB Type2Enum(Type type)
-        {
-            switch (type.Name)
-            {
-                case "UserRankMaster":
-                    {
-                        return MASTERDB.USER_RANK_MASTER;
-                    }
-                case "UnitMaster":
-                    {
-                        return MASTERDB.UNIT_MASTER;
-                    }
-                case "PartySkillMaster":
-                    {
-                        return MASTERDB.PARTY_SKILL_MASTER;
-                    }
-                case "PartySkillRankMaster":
-                    {
-                        return MASTERDB.PARTY_SKILL_RANK_MASTER;
-                    }
-                case "ActiveSkillMaster":
-                    {
-                        return MASTERDB.ACTIVE_SKILL_MASTER;
-                    }
-                case "ActiveSkillRankMaster":
-                    {
-                        return MASTERDB.ACTIVE_SKILL_RANK_MASTER;
-                    }
-                case "EnemyUnitMaster":
-                    {
-                        return MASTERDB.ENEMY_UNIT_MASTER;
-                    }
-                case "EnemyTableMaster":
-                    {
-                        return MASTERDB.ENEMY_TABLE_MASTER;
-                    }
-                case "EnemyDropMaster":    //not exist
-                    {
-                        return MASTERDB.ENEMY_DROP_MASTER;
-                    }
-                case "QuestMaster":
-                    {
-                        return MASTERDB.QUEST_MASTER;
-                    }
-                //case "QuestCategoryMaster":
-                //    {
-                //        return MASTERDB.QUEST_CATEGORY_MASTER;
-                //    }
-                //case MASTERDB.GACHA_ITEM_MASTER:    //not exist
-                //case MASTERDB.GACHA_TABLE_MASTER:   //not exist
-                case "ShopProductMaster":  //exist in iOS only
-                    {
-                        return MASTERDB.SHOP_PRODUCT_MASTER;
-                    }
-                case "ShopProductMasterAndroid":
-                    {
-                        return MASTERDB.SHOP_PRODUCT_MASTER_ANDROID;
-                    }
-                case "MonthlyLoginBonusMaster":
-                    {
-                        return MASTERDB.LOGIN_BONUS_MASTER;
-                    }
-                case "SequenceLoginBonusMaster":
-                    {
-                        return MASTERDB.SEQUENCE_LOGIN_BONUS_MASTER;
-                    }
-                case "LevelDataListMaster":  //not exist
-                    {
-                        return MASTERDB.LEVELDATA_LIST_MASTER;
-                    }
-                case "UnitTalkMaster":
-                    {
-                        return MASTERDB.UNIT_TALK_MASTER;
-                    }
-                case "GlobalParamsMaster":
-                    {
-                        return MASTERDB.GLOBAL_PARAM_MASTER;
-                    }
-                case "QuestChallengeMaster":
-                    {
-                        return MASTERDB.QUEST_CHALLENGE_MASTER;
-                    }
-                case "QuestChallengeRewardMaster":
-                    {
-                        return MASTERDB.QUEST_CHALLENGE_REWARD_MASTER;
-                    }
-                case "SpEventMaster":
-                    {
-                        return MASTERDB.SP_EVENT_MASTER;
-                    }
-                case "PanelSkillMaster":
-                    {
-                        return MASTERDB.PANEL_SKILL_MASTER;
-                    }
-                case "PanelSkillRankMaster":
-                    {
-                        return MASTERDB.PANEL_SKILL_RANK_MASTER;
-                    }
-                case "AccessoryMaster":
-                    {
-                        return MASTERDB.ACCESSORY_MASTER;
-                    }
-                case "TalkDialogHeaderMaster":
-                    { return MASTERDB.TALK_DIALOG_MASTER; }
-                case "LimitSkillMaster":
-                    { return MASTERDB.LIMIT_SKILL_MASTER; }
-                case "LimitSkillRankMaster":
-                    { return MASTERDB.LIMIT_SKILL_RANK_MASTER; }
-                case "QuestAreaMaster":
-                    { return MASTERDB.QUEST_AREA_MASTER; }
-                case "QuestFieldMaster":
-                    { return MASTERDB.QUEST_FIELD_MASTER; }
-                case "QuestWorldMaster":
-                    { return MASTERDB.QUEST_WORLD_MASTER; }
-
-                //case MASTERDB.MAX   //not exist
-                default:
-                    {
-                        return MASTERDB.MAX;
-                    }
-            }
-        }
-        public static Type Enum2Type(MASTERDB MDB)
-        {
-            switch (MDB)
-            {
-                case MASTERDB.USER_RANK_MASTER:
-                    {
-                        return typeof(UserRankMaster);
-                    }
-                case MASTERDB.UNIT_MASTER:
-                    {
-                        return typeof(UnitMaster);
-                    }
-                case MASTERDB.PARTY_SKILL_MASTER:
-                    {
-                        return typeof(PartySkillMaster);
-                    }
-                case MASTERDB.PARTY_SKILL_RANK_MASTER:
-                    {
-                        return typeof(PartySkillRankMaster);
-                    }
-                case MASTERDB.ACTIVE_SKILL_MASTER:
-                    {
-                        return typeof(ActiveSkillMaster);
-                    }
-                case MASTERDB.ACTIVE_SKILL_RANK_MASTER:
-                    {
-                        return typeof(ActiveSkillRankMaster);
-                    }
-                case MASTERDB.ENEMY_UNIT_MASTER:
-                    {
-                        return typeof(EnemyUnitMaster);
-                    }
-                case MASTERDB.ENEMY_TABLE_MASTER:
-                    {
-                        return typeof(EnemyTableMaster);
-                    }
-                case MASTERDB.ENEMY_DROP_MASTER:    //not exist
-                    {
-                        return typeof(EnemyDropMaster);
-                    }
-                case MASTERDB.QUEST_MASTER:
-                    {
-                        return typeof(QuestMaster);
-                    }
-                //case MASTERDB.QUEST_CATEGORY_MASTER:
-                //    {
-                //        return typeof(QuestCategoryMaster);
-                //    }
-                //case MASTERDB.GACHA_ITEM_MASTER:    //not exist
-                //case MASTERDB.GACHA_TABLE_MASTER:   //not exist
-                case MASTERDB.SHOP_PRODUCT_MASTER:  //exist in iOS only
-                    {
-                        return typeof(ShopProductMaster);
-                    }
-                case MASTERDB.SHOP_PRODUCT_MASTER_ANDROID:
-                    {
-                        return typeof(ShopProductMasterAndroid);
-                    }
-                case MASTERDB.LOGIN_BONUS_MASTER:
-                    {
-                        return typeof(MonthlyLoginBonusMaster);
-                    }
-                case MASTERDB.SEQUENCE_LOGIN_BONUS_MASTER:
-                    {
-                        return typeof(SequenceLoginBonusMaster);
-                    }
-                case MASTERDB.LEVELDATA_LIST_MASTER:  //not exist
-                    {
-                        return typeof(LevelDataListMaster);
-                    }
-                case MASTERDB.UNIT_TALK_MASTER:
-                    {
-                        return typeof(UnitTalkMaster);
-                    }
-                case MASTERDB.GLOBAL_PARAM_MASTER:
-                    {
-                        return typeof(GlobalParamsMaster);
-                    }
-                case MASTERDB.QUEST_CHALLENGE_MASTER:
-                    {
-                        return typeof(QuestChallengeMaster);
-                    }
-                case MASTERDB.QUEST_CHALLENGE_REWARD_MASTER:
-                    {
-                        return typeof(QuestChallengeRewardMaster);
-                    }
-                case MASTERDB.SP_EVENT_MASTER:
-                    {
-                        return typeof(SpEventMaster);
-                    }
-                case MASTERDB.PANEL_SKILL_MASTER:
-                    {
-                        return typeof(PanelSkillMaster);
-                    }
-                case MASTERDB.PANEL_SKILL_RANK_MASTER:
-                    {
-                        return typeof(PanelSkillRankMaster);
-                    }
-                case MASTERDB.ACCESSORY_MASTER:
-                    {
-                        return typeof(AccessoryMaster);
-                    }
-                case MASTERDB.TALK_DIALOG_MASTER:
-                    { return typeof(TalkDialogHeaderMaster); }
-                case MASTERDB.LIMIT_SKILL_MASTER:
-                    { return typeof(LimitSkillMaster); }
-                case MASTERDB.LIMIT_SKILL_RANK_MASTER:
-                    { return typeof(LimitSkillRankMaster); }
-                case MASTERDB.QUEST_AREA_MASTER:
-                    { return typeof(QuestAreaMaster); }
-                case MASTERDB.QUEST_FIELD_MASTER:
-                    { return typeof(QuestFieldMaster); }
-                case MASTERDB.QUEST_WORLD_MASTER:
-                    { return typeof(QuestWorldMaster); }
-                //case MASTERDB.MAX   //not exist
-                default:
-                    {
-                        return null;
                     }
             }
         }

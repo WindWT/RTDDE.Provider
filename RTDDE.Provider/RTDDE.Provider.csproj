@@ -66,6 +66,7 @@
     <Compile Include="Enums\AssignID.cs" />
     <Compile Include="Enums\AttackPattern.cs" />
     <Compile Include="Enums\ENEMY_TYPE.cs" />
+    <Compile Include="Enums\Converter.cs" />
     <Compile Include="Enums\Message_Name.cs" />
     <Compile Include="Enums\PanelSkillType.cs" />
     <Compile Include="Enums\PassiveSkillType.cs" />
@@ -106,7 +107,7 @@
     <Compile Include="MasterData\UnitMaster.cs" />
     <Compile Include="MasterData\UnitTalkMaster.cs" />
     <Compile Include="MasterData\UserRankMaster.cs" />
-    <Compile Include="MASTERDB.cs" />
+    <Compile Include="Enums\MASTERDB.cs" />
     <Compile Include="MsgPack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility.cs" />
