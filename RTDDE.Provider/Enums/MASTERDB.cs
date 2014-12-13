@@ -41,5 +41,6 @@ namespace RTDDE.Provider.Enums
         GLOBAL_PARAM_MASTER = 90,
         LIMIT_SKILL_MASTER = 91,
         LIMIT_SKILL_RANK_MASTER = 92,
+        LEVEL_DATA_MASTER = 999,  //not exist after 1.8?
     }
 }

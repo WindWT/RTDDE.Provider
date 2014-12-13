@@ -177,12 +177,26 @@ namespace RTDDE.Provider
             return list;
         }
 
+        public static List<T> ToAllList<T>() where T : class, new()
+        {
+            return ToAllList<T>(string.Empty);
+        }
+        public static List<T> ToAllList<T>(string orderField) where T : class, new()
+        {
+            return ToAllList<T>(new string[] { orderField });
+        }
+        public static List<T> ToAllList<T>(string[] orderFieldStrings) where T : class, new()
+        {
+            string tableName = Converter.Type2Enum(typeof(T)).ToString();
+            string orderString = string.Join(",", orderFieldStrings);
+            return ToList<T>(string.Format("SELECT * FROM {0} ORDER BY {1}", tableName, orderString));
+        }
         public static void FromSingle<T>(T obj) where T : class,new()
         {
             FieldInfo[] fields = typeof(T).GetFields();
             PropertyInfo[] properties = typeof(T).GetProperties();
 
-            string tableName = typeof(T).Name == typeof(LevelDataMaster).Name ? "LEVEL_DATA_MASTER" : Converter.Type2Enum(typeof(T)).ToString();
+            string tableName = Converter.Type2Enum(typeof(T)).ToString();
             string[] columnNames = GetColumnNames(typeof(T));
             string pkName = GetColumnPKName(typeof(T));
 
@@ -244,7 +258,7 @@ namespace RTDDE.Provider
             FieldInfo[] fields = typeof(T).GetFields();
             PropertyInfo[] properties = typeof(T).GetProperties();
 
-            string tableName = typeof(T).Name == typeof(LevelDataMaster).Name ? "LEVEL_DATA_MASTER" : Converter.Type2Enum(typeof(T)).ToString();
+            string tableName = Converter.Type2Enum(typeof(T)).ToString();
             string[] columnNames = GetColumnNames(typeof(T));
             string pkName = GetColumnPKName(typeof(T));
 

@@ -39,7 +39,8 @@ namespace RTDDE.Provider.Enums
             {MASTERDB.LIMIT_SKILL_RANK_MASTER,typeof(LimitSkillRankMaster)},
             {MASTERDB.QUEST_AREA_MASTER,typeof(QuestAreaMaster)},
             {MASTERDB.QUEST_FIELD_MASTER,typeof(QuestFieldMaster)},
-            {MASTERDB.QUEST_WORLD_MASTER,typeof(QuestWorldMaster)}
+            {MASTERDB.QUEST_WORLD_MASTER,typeof(QuestWorldMaster)},
+            {MASTERDB.LEVEL_DATA_MASTER,typeof(LevelDataMaster)},
         };
 
         public static MASTERDB Type2Enum(Type type)
