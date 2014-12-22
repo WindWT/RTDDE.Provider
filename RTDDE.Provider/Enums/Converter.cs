@@ -20,7 +20,7 @@ namespace RTDDE.Provider.Enums
             {MASTERDB.ENEMY_TABLE_MASTER,typeof(EnemyTableMaster)},
             {MASTERDB.ENEMY_DROP_MASTER,typeof(EnemyDropMaster)},   //not exist
             {MASTERDB.QUEST_MASTER,typeof(QuestMaster)},
-            //{MASTERDB.QUEST_CATEGORY_MASTER,typeof(QuestCategoryMaster)},
+            {MASTERDB.QUEST_CATEGORY_MASTER,typeof(QuestCategoryMaster)},
             {MASTERDB.SHOP_PRODUCT_MASTER,typeof(ShopProductMaster)},
             {MASTERDB.SHOP_PRODUCT_MASTER_ANDROID,typeof(ShopProductMasterAndroid)},
             {MASTERDB.LOGIN_BONUS_MASTER,typeof(MonthlyLoginBonusMaster)},

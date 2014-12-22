@@ -22,7 +22,7 @@ namespace RTDDE.Provider.Enums
         ENEMY_TABLE_MASTER,  //not exist
         ENEMY_DROP_MASTER = 22,  //not exist
         QUEST_MASTER = 30,
-        //QUEST_CATEGORY_MASTER = 31,   //not exist after 5.1
+        QUEST_CATEGORY_MASTER = 31,   //not exist after 5.1
         QUEST_CHALLENGE_MASTER = 32,
         QUEST_CHALLENGE_REWARD_MASTER = 33,
         SP_EVENT_MASTER = 34,
@@ -35,6 +35,8 @@ namespace RTDDE.Provider.Enums
         SHOP_PRODUCT_MASTER_ANDROID = 43,
         LOGIN_BONUS_MASTER = 51,
         SEQUENCE_LOGIN_BONUS_MASTER = 52,
+        ASSET_BUNDLE_MASTER = 53,   //TW only
+        BANNER_MASTER = 54,   //TW only
         USER_RANK_MASTER = 60,
         LEVELDATA_LIST_MASTER = 70,  //not exist
         TALK_DIALOG_MASTER = 80,

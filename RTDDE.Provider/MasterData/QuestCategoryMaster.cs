@@ -6,7 +6,7 @@ using System.Text;
 namespace RTDDE.Provider.MasterData
 {
     [Serializable]
-    [Obsolete("Not available after 5.1.0.0")]
+    //[Obsolete("Not available after 5.1.0.0")]
     public class QuestCategoryMaster
     {
         public int id;

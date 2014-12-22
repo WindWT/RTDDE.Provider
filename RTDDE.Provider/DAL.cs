@@ -12,7 +12,7 @@ namespace RTDDE.Provider
 {
     public static class DAL
     {
-        private static string _connectionString = "Data Source=RTD.db";
+        private static string _connectionString = "Data Source=RTD_TW.db";
         public static string ConnectionString
         {
             get

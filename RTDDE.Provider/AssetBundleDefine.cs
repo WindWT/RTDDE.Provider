@@ -51,7 +51,7 @@ namespace RTDDE.Provider
             }
             public string GetURL()
             {
-                string text = "http://www.acquirespdl.jp/RTD/DLC/";
+                string text = "http://patchrtd.joymobee.com/resource/RTD/DLC/";
                 string text2 = AssetBundleDefine.VersionDir[(int)this.m_Version];
                 return string.Concat(new string[]
 			{
