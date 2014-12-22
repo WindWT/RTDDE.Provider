@@ -41,6 +41,8 @@ namespace RTDDE.Provider.Enums
             {MASTERDB.QUEST_FIELD_MASTER,typeof(QuestFieldMaster)},
             {MASTERDB.QUEST_WORLD_MASTER,typeof(QuestWorldMaster)},
             {MASTERDB.LEVEL_DATA_MASTER,typeof(LevelDataMaster)},
+            {MASTERDB.ASSET_BUNDLE_MASTER,typeof(AssetBundleMaster)},
+            {MASTERDB.BANNER_MASTER,typeof(BannerMaster)},
         };
 
         public static MASTERDB Type2Enum(Type type)
