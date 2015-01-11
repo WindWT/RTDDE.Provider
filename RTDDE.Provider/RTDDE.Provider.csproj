@@ -106,13 +106,15 @@
     <Compile Include="MasterData\UnitTalkMaster.cs" />
     <Compile Include="MasterData\UserRankMaster.cs" />
     <Compile Include="Enums\MASTERDB.cs" />
+    <Compile Include="MasterData\Wrapper\QuestChallengeRewardState.cs" />
+    <Compile Include="MasterData\Wrapper\QuestChallengeState.cs" />
+    <Compile Include="MasterData\Wrapper\WrapperBase.cs" />
     <Compile Include="MsgPack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="Enums\Class.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

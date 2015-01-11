@@ -5,7 +5,6 @@ using System.Data;
 using System.Text;
 using System.Data.SQLite;
 using System.Reflection;
-using RTDDE.Provider.MasterData;
 using RTDDE.Provider.Enums;
 
 namespace RTDDE.Provider
@@ -261,6 +260,7 @@ namespace RTDDE.Provider
             string tableName = Converter.Type2Enum(typeof(T)).ToString();
             string[] columnNames = GetColumnNames(typeof(T));
             string pkName = GetColumnPKName(typeof(T));
+            bool isUseProperty = typeof(T).IsUseProperty();
 
             using (SQLiteConnection connection = new SQLiteConnection(_connectionString))
             {
@@ -285,7 +285,7 @@ namespace RTDDE.Provider
                     createTableCmd.CommandText = createTableCmd.CommandText.TrimEnd(',');
                     createTableCmd.CommandText += ");";
                     createTableCmd.ExecuteNonQuery();
-
+                    
                     foreach (T obj in list)
                     {
                         SQLiteCommand upsertRowCmd = new SQLiteCommand(connection);
@@ -295,7 +295,7 @@ namespace RTDDE.Provider
                         foreach (string name in columnNames)
                         {
                             string columnName = name;
-                            object columnValue = typeof(T).IsUseProperty() ? properties.First(o => o.Name == name).GetValue(obj, null) : fields.First(o => o.Name == name).GetValue(obj);
+                            object columnValue = isUseProperty ? properties.First(o => o.Name == name).GetValue(obj, null) : fields.First(o => o.Name == name).GetValue(obj);
                             sqlColumnName.Append(columnName);
                             sqlColumnName.Append(",");
                             sqlColumnValue.Append("@" + columnName);
@@ -310,7 +310,6 @@ namespace RTDDE.Provider
                         upsertRowCmd.CommandText = upsertRowCmd.CommandText.TrimEnd(',');
                         upsertRowCmd.CommandText += ");";
                         upsertRowCmd.ExecuteNonQuery();
-                        //System.Diagnostics.Debug.WriteLine(upsertRowCmd.CommandText);
                     }
                     trans.Commit();
                 }
