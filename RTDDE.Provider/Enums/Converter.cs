@@ -41,6 +41,8 @@ namespace RTDDE.Provider.Enums
             {MASTERDB.QUEST_FIELD_MASTER,typeof(QuestFieldMaster)},
             {MASTERDB.QUEST_WORLD_MASTER,typeof(QuestWorldMaster)},
             {MASTERDB.LEVEL_DATA_MASTER,typeof(LevelDataMaster)},
+            {MASTERDB.GACHA_ITEM_MASTER,typeof(GachaItemMaster)},
+            {MASTERDB.MAP_EVENT_MASTER,typeof(MapEventMaster)},
         };
 
         public static MASTERDB Type2Enum(Type type)

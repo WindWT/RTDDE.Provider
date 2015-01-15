@@ -6,7 +6,7 @@ using System.Text;
 namespace RTDDE.Provider.MasterData
 {
     [Serializable]
-    [DAL(UseProperty=true)]
+    [DAL(UseProperty = true)]
     public class UnitMaster
     {
         public int i;

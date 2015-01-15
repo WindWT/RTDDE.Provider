@@ -225,54 +225,63 @@ namespace RTDDE.Provider
         }
         #region AssignID
 
-        public static readonly EnemyEffectAssign[] m_EffectList = new EnemyEffectAssign[]	{
-		new EnemyEffectAssign(1, "ef_atk_blade_01", null),
-		new EnemyEffectAssign(2, "ef_atk_blade_02", null),
-		new EnemyEffectAssign(101, "ef_atk_spear_01", null),
-		new EnemyEffectAssign(102, "ef_atk_spear_02", null),
-		new EnemyEffectAssign(201, "ef_atk_arrow_01", null),
-		new EnemyEffectAssign(202, "ef_atk_arrow_02", null),
-		new EnemyEffectAssign(301, "ef_atk_magic_01", null),
-		new EnemyEffectAssign(302, "ef_atk_magic_03", null),
-		new EnemyEffectAssign(303, "ef_atk_magic_04", null),
-		new EnemyEffectAssign(3, "ef_atk_blade_03", null),
-		new EnemyEffectAssign(103, "ef_atk_spear_03", null),
-		new EnemyEffectAssign(203, "ef_atk_arrow_03", null),
-		new EnemyEffectAssign(4, "ef_atk_blade_01", null),
-		new EnemyEffectAssign(204, "ef_atk_arrow_02", null),
-		new EnemyEffectAssign(104, "ef_atk_spear_02", null),
-		new EnemyEffectAssign(304, "ef_atk_magic_03", null),
-		new EnemyEffectAssign(205, "ef_atk_arrow_01", null),
-		new EnemyEffectAssign(105, "ef_atk_spear_04", null),
-		new EnemyEffectAssign(106, "ef_atk_spear_05", null),
-		new EnemyEffectAssign(305, "ef_atk_magic_01", null),
-		new EnemyEffectAssign(107, "ef_atk_spear_06", null),
-		new EnemyEffectAssign(5, "ef_atk_blade_04", null),
-		new EnemyEffectAssign(6, "ef_atk_blade_02", null),
-		new EnemyEffectAssign(206, "ef_atk_arrow_04", null),
-		new EnemyEffectAssign(7, "ef_atk_blade_02", null),
-		new EnemyEffectAssign(306, "ef_atk_magic_03", null),
-		new EnemyEffectAssign(8, "ef_atk_blade_05", null),
-		new EnemyEffectAssign(207, "ef_atk_arrow_03", null),
-		new EnemyEffectAssign(108, "ef_atk_spear_06", null),
-		new EnemyEffectAssign(9, "ef_atk_blade_06", null),
-		new EnemyEffectAssign(109, "ef_atk_spear_07", null),
-		new EnemyEffectAssign(208, "ef_atk_arrow_06", null),
-		new EnemyEffectAssign(307, "ef_atk_magic_05", null),
-		new EnemyEffectAssign(209, "ef_atk_arrow_05", null),
-		new EnemyEffectAssign(308, "ef_atk_magic_04", null),
-		new EnemyEffectAssign(309, "ef_atk_magic_03", null),
-		new EnemyEffectAssign(210, "ef_atk_arrow_06", null),
-		new EnemyEffectAssign(310, "ef_atk_magic_03", null),
-		new EnemyEffectAssign(10, "ef_atk_blade_07", null),
-		new EnemyEffectAssign(110, "ef_atk_spear_08", null),
-		new EnemyEffectAssign(11, "ef_atk_blade_08", null),
-		new EnemyEffectAssign(211, "ef_atk_arrow_07", null),
-		new EnemyEffectAssign(212, "ef_atk_arrow_05", null),
-		new EnemyEffectAssign(12, "ef_atk_blade_09", null),
-		new EnemyEffectAssign(311, "ef_atk_magic_03", null),
-		new EnemyEffectAssign(312, "ef_atk_magic_03", null)
-	};
+        public static readonly EnemyEffectAssign[] m_EffectList = new EnemyEffectAssign[]
+        {
+            new EnemyEffectAssign(1, "ef_atk_blade_01", null),
+            new EnemyEffectAssign(2, "ef_atk_blade_02", null),
+            new EnemyEffectAssign(101, "ef_atk_spear_01", null),
+            new EnemyEffectAssign(102, "ef_atk_spear_02", null),
+            new EnemyEffectAssign(201, "ef_atk_arrow_01", null),
+            new EnemyEffectAssign(202, "ef_atk_arrow_02", null),
+            new EnemyEffectAssign(301, "ef_atk_magic_01", null),
+            new EnemyEffectAssign(302, "ef_atk_magic_03", null),
+            new EnemyEffectAssign(303, "ef_atk_magic_04", null),
+            new EnemyEffectAssign(3, "ef_atk_blade_03", null),
+            new EnemyEffectAssign(103, "ef_atk_spear_03", null),
+            new EnemyEffectAssign(203, "ef_atk_arrow_03", null),
+            new EnemyEffectAssign(4, "ef_atk_blade_01", null),
+            new EnemyEffectAssign(204, "ef_atk_arrow_02", null),
+            new EnemyEffectAssign(104, "ef_atk_spear_02", null),
+            new EnemyEffectAssign(304, "ef_atk_magic_03", null),
+            new EnemyEffectAssign(205, "ef_atk_arrow_01", null),
+            new EnemyEffectAssign(105, "ef_atk_spear_04", null),
+            new EnemyEffectAssign(106, "ef_atk_spear_05", null),
+            new EnemyEffectAssign(305, "ef_atk_magic_01", null),
+            new EnemyEffectAssign(107, "ef_atk_spear_06", null),
+            new EnemyEffectAssign(5, "ef_atk_blade_04", null),
+            new EnemyEffectAssign(6, "ef_atk_blade_02", null),
+            new EnemyEffectAssign(206, "ef_atk_arrow_04", null),
+            new EnemyEffectAssign(7, "ef_atk_blade_02", null),
+            new EnemyEffectAssign(306, "ef_atk_magic_03", null),
+            new EnemyEffectAssign(8, "ef_atk_blade_05", null),
+            new EnemyEffectAssign(207, "ef_atk_arrow_03", null),
+            new EnemyEffectAssign(108, "ef_atk_spear_06", null),
+            new EnemyEffectAssign(9, "ef_atk_blade_06", null),
+            new EnemyEffectAssign(109, "ef_atk_spear_07", null),
+            new EnemyEffectAssign(208, "ef_atk_arrow_06", null),
+            new EnemyEffectAssign(307, "ef_atk_magic_05", null),
+            new EnemyEffectAssign(209, "ef_atk_arrow_05", null),
+            new EnemyEffectAssign(308, "ef_atk_magic_04", null),
+            new EnemyEffectAssign(309, "ef_atk_magic_03", null),
+            new EnemyEffectAssign(210, "ef_atk_arrow_06", null),
+            new EnemyEffectAssign(310, "ef_atk_magic_03", null),
+            new EnemyEffectAssign(10, "ef_atk_blade_07", null),
+            new EnemyEffectAssign(110, "ef_atk_spear_08", null),
+            new EnemyEffectAssign(11, "ef_atk_blade_08", null),
+            new EnemyEffectAssign(211, "ef_atk_arrow_07", null),
+            new EnemyEffectAssign(212, "ef_atk_arrow_05", null),
+            new EnemyEffectAssign(12, "ef_atk_blade_09", null),
+            new EnemyEffectAssign(311, "ef_atk_magic_03", null),
+            new EnemyEffectAssign(312, "ef_atk_magic_03", null),
+            new EnemyEffectAssign(111, "ef_atk_spear_09", null),
+            new EnemyEffectAssign(13, "ef_atk_blade_10", null),
+            new EnemyEffectAssign(112, "ef_atk_spear_10", null),
+            new EnemyEffectAssign(214, "ef_atk_arrow_09", null),
+            new EnemyEffectAssign(215, "ef_atk_arrow_10", null),
+            new EnemyEffectAssign(313, "ef_atk_magic_06", null),
+            new EnemyEffectAssign(213, "ef_atk_arrow_08", null),
+            new EnemyEffectAssign(314, "ef_atk_magic_07", null)
+        };
         #endregion
         public static AssignID ParseUnitKind(int kind)
         {
@@ -418,9 +427,11 @@ namespace RTDDE.Provider
         {
             return "bgm_rtd_" + no.ToString("D2");
         }
+
         public static bool IsUnitEnemy(int num)
         {
-            switch (num) {
+            switch (num)
+            {
                 case 30:
                     return true;
                 case 31:
@@ -430,15 +441,40 @@ namespace RTDDE.Provider
                 case 37:
                     return true;
                 default:
-                    switch (num - 22) {
+                    switch (num - 22)
+                    {
                         case 0:
                             return true;
                         case 2:
                             return true;
                         default:
-                            return num == 45;
+                            switch (num - 45)
+                            {
+                                case 0:
+                                    return true;
+                                case 2:
+                                    return true;
+                                default:
+                                    return false;
+                            }
                     }
             }
+        }
+        public static bool IsDvGObject(int num)
+        {
+            bool flag = false;
+            switch (num) {
+                case 48:
+                    flag = true;
+                    break;
+                case 49:
+                    flag = true;
+                    break;
+                case 50:
+                    flag = true;
+                    break;
+            }
+            return flag;
         }
     }
 }

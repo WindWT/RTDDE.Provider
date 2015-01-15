@@ -113,6 +113,9 @@ namespace RTDDE.Provider.Enums
         SOUL_DRAIN_AND_ATTR_UP_SOUL = 104,
         DAMAGE_REDUCTION_AND_REFLECTION = 105,
         SLASH_PANEL_ATTACK_UP = 106,
-        BUFFER = 107,
+        DVG_NORMAL_SKILL = 107,
+        ATTRIBUTE_EXPANEL_ATTACK = 108,
+        DIFFER_ATTRI_ATTACK = 109,
+        BUFFER = 110,
     }
 }

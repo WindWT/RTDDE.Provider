@@ -50,5 +50,10 @@ namespace RTDDE.Provider.Enums
         ORG_GUN = 43,
         DRAGON4_EX = 44,
         ANIMAL_LEG = 45,
+        LAST_BOSS = 46,
+        UNIT_ENEMY_POKKULU_WING = 47,
+        MINE = 48,
+        GOLD = 49,
+        NOTHING = 50,
     }
 }

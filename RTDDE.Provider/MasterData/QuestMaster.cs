@@ -16,6 +16,7 @@ namespace RTDDE.Provider.MasterData
         public int d;
         public int c;
         public int pai;
+        public uint pmei;
         public int m;
         public int s;
         public int so;
@@ -140,18 +141,6 @@ namespace RTDDE.Provider.MasterData
             }
         }
 
-        public int category
-        {
-            get
-            {
-                return this.c;
-            }
-            set
-            {
-                this.c = value;
-            }
-        }
-
         public int parent_area_id
         {
             get
@@ -161,6 +150,18 @@ namespace RTDDE.Provider.MasterData
             set
             {
                 this.pai = value;
+            }
+        }
+
+        public uint parent_map_event_id
+        {
+            get
+            {
+                return this.pmei;
+            }
+            set
+            {
+                this.pmei = value;
             }
         }
 

@@ -29,7 +29,7 @@ namespace RTDDE.Provider.Enums
         QUEST_AREA_MASTER = 37,
         QUEST_FIELD_MASTER = 38,
         QUEST_WORLD_MASTER = 39,
-        GACHA_ITEM_MASTER = 40,  //not exist
+        GACHA_ITEM_MASTER = 40,
         GACHA_TABLE_MASTER = 41,  //not exist
         SHOP_PRODUCT_MASTER = 42,   //exist in iOS only
         SHOP_PRODUCT_MASTER_ANDROID = 43,
@@ -41,6 +41,7 @@ namespace RTDDE.Provider.Enums
         GLOBAL_PARAM_MASTER = 90,
         LIMIT_SKILL_MASTER = 91,
         LIMIT_SKILL_RANK_MASTER = 92,
+        MAP_EVENT_MASTER = 95,
         LEVEL_DATA_MASTER = 999,  //not exist after 1.8?
     }
 }

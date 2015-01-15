@@ -81,5 +81,8 @@ namespace RTDDE.Provider.Enums
         EnemyDmgAddWeakness = 72,
         AttrCorrectionAtk = 73,
         PfDefenceAndReflect = 74,
+        LimitDefenceUp = 75,
+        LimitColorEnhance = 76,
+        DestructFixDamage = 77,
     }
 }

@@ -72,6 +72,8 @@
     <Compile Include="Enums\UnitAttribute.cs" />
     <Compile Include="JSON.cs" />
     <Compile Include="MapData.cs" />
+    <Compile Include="MasterData\GachaItemMaster.cs" />
+    <Compile Include="MasterData\MapEventMaster.cs" />
     <Compile Include="MasterData\TalkDialogHeaderMaster.cs" />
     <Compile Include="MasterData\LimitSkillRankMaster.cs" />
     <Compile Include="MasterData\LimitSkillMaster.cs" />

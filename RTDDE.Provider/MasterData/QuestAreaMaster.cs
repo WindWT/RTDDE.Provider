@@ -14,7 +14,7 @@ namespace RTDDE.Provider.MasterData
         public string name;
         public string name_short;
         public string text;
-        public string banner_texture;
+        public string banner_bg_texture;
         public string icon_texture;
         public int icon_pos_x;
         public int icon_pos_y;
@@ -23,7 +23,7 @@ namespace RTDDE.Provider.MasterData
         public int icon_col_w;
         public int icon_col_h;
         public uint connect_area_id;
-        public string banner_bg_texture;
+        public string banner_texture;
         public short display_order;
         public byte lock_type;
         public int lock_value;
