@@ -18,9 +18,12 @@ namespace RTDDE.Provider.MasterData
         public int height;
         public string map_data;
         public string hash;
-        //public EnemyTableMaster enemy_table_master;
-        //public UnitTalkMaster unit_talk_master;
-        //public EventCutinMaster[] event_cutin_master;
+        [DALColumn(Ignore = true)]
+        public EnemyTableMaster enemy_table_master;
+        [DALColumn(Ignore = true)]
+        public UnitTalkMaster unit_talk_master;
+        [DALColumn(Ignore = true)]
+        public EventCutinMaster[] event_cutin_master;
         public uint clear_talk_id;
     }
 }

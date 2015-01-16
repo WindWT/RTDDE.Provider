@@ -353,9 +353,38 @@ namespace RTDDE.Provider
             PropertyInfo[] properties = type.GetProperties();
 
             List<string> names = new List<string>();
-            names.AddRange(type.IsUseProperty()
-                ? properties.Select(property => property.Name)
-                : fields.Select(field => field.Name));
+            if (type.IsUseProperty())
+            {
+                foreach (PropertyInfo property in properties)
+                {
+                    object[] attrs = property.GetCustomAttributes(typeof (DALColumnAttribute), true);
+                    if (attrs.Length > 0)
+                    {
+                        DALColumnAttribute attr = attrs[0] as DALColumnAttribute;
+                        if (attr != null && attr.Ignore == true)
+                        {
+                            continue;
+                        }
+                    }
+                    names.Add(property.Name);
+                }
+            }
+            else
+            {
+                foreach (FieldInfo field in fields)
+                {
+                    object[] attrs = field.GetCustomAttributes(typeof (DALColumnAttribute), true);
+                    if (attrs.Length > 0)
+                    {
+                        DALColumnAttribute attr = attrs[0] as DALColumnAttribute;
+                        if (attr != null && attr.Ignore == true)
+                        {
+                            continue;
+                        }
+                    }
+                    names.Add(field.Name);
+                }
+            }
             return names.ToArray();
         }
 
@@ -427,5 +456,6 @@ namespace RTDDE.Provider
     public class DALColumnAttribute : Attribute
     {
         public bool PrimaryKey { get; set; }
+        public bool Ignore { get; set; }
     }
 }

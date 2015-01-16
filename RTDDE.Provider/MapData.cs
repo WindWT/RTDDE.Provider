@@ -5,49 +5,47 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Xml;
+using MsgPack.Serialization;
 
 namespace RTDDE.Provider
 {
     public class MapData
     {
-        public string LDM { get; set; }
-        public string ETM { get; set; }
-        public string UTM { get; set; }
+        public LevelDataMaster LDM { get; set; }
 
-        public MapData(string json)
+        public MapData(Stream stream)
         {
-            initMapData(json);
+            InitMapData(stream);
         }
-        public static List<MapData> FromPlist(Stream plistFileStream)
-        {
-            var reader = new System.Runtime.Serialization.Plists.BinaryPlistReader();
-            var dict = reader.ReadObject(plistFileStream);
-            var list = new List<MapData>();
+        //public static List<MapData> FromPlist(Stream plistFileStream)
+        //{
+        //    var reader = new System.Runtime.Serialization.Plists.BinaryPlistReader();
+        //    var dict = reader.ReadObject(plistFileStream);
+        //    var list = new List<MapData>();
 
-            Dictionary<int, int> objIndex = new Dictionary<int, int>();
-            object[] NSKeyObjects = (((dict["$objects"] as Object[])[1] as IDictionary<object, object>)["NS.keys"] as object[]);
-            object[] NSValueObjects = (((dict["$objects"] as Object[])[1] as IDictionary<object, object>)["NS.objects"] as object[]);
-            for (int i = 0; i < NSKeyObjects.Length; i++)
-            {
-                objIndex.Add(Convert.ToInt32((NSKeyObjects[i] as Dictionary<String, UInt64>)["CF$UID"]), Convert.ToInt32((NSValueObjects[i] as Dictionary<String, UInt64>)["CF$UID"]));
-            }
-            foreach (KeyValuePair<int, int> o in objIndex)
-            {
-                if ((dict["$objects"] as Object[])[o.Key].ToString().StartsWith("LDBS"))
-                {
-                    string json = (dict["$objects"] as Object[])[o.Value].ToString();
-                    list.Add(new MapData(json));
-                }
-            }
-            return list;
-        }
-        private void initMapData(string json)
+        //    Dictionary<int, int> objIndex = new Dictionary<int, int>();
+        //    object[] NSKeyObjects = (((dict["$objects"] as Object[])[1] as IDictionary<object, object>)["NS.keys"] as object[]);
+        //    object[] NSValueObjects = (((dict["$objects"] as Object[])[1] as IDictionary<object, object>)["NS.objects"] as object[]);
+        //    for (int i = 0; i < NSKeyObjects.Length; i++)
+        //    {
+        //        objIndex.Add(Convert.ToInt32((NSKeyObjects[i] as Dictionary<String, UInt64>)["CF$UID"]), Convert.ToInt32((NSValueObjects[i] as Dictionary<String, UInt64>)["CF$UID"]));
+        //    }
+        //    foreach (KeyValuePair<int, int> o in objIndex)
+        //    {
+        //        if ((dict["$objects"] as Object[])[o.Key].ToString().StartsWith("LDBS"))
+        //        {
+        //            string json = (dict["$objects"] as Object[])[o.Value].ToString();
+        //            list.Add(new MapData(json));
+        //        }
+        //    }
+        //    return list;
+        //}
+        private void InitMapData(Stream stream)
         {
-            LDM = json;
-            JObject jo = JObject.Parse(json);
-            ETM = JsonConvert.SerializeObject(jo["enemy_table_master"]);
-            UTM = JsonConvert.SerializeObject(jo["unit_talk_master"]);
+            var msg = MessagePackSerializer.Get<LevelDataMaster>();
+            LDM = msg.Unpack(stream);
         }
         public static List<EnemyInfo> GetEnemyInfo(string levelID)
         {
