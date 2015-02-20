@@ -6,7 +6,7 @@ using System.Text;
 namespace RTDDE.Provider.MasterData
 {
     [Serializable]
-    public class ShopProductMasterAndroid : ShopProductMaster
+    public class QuestAssetBundleMaster : AssetBundleMaster
     {
     }
 }

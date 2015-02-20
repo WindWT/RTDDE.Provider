@@ -57,7 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssetBundleDefine.cs" />
     <Compile Include="DAL.cs" />
     <Compile Include="Enums\AccessoryType.cs" />
     <Compile Include="Enums\ActiveSkillType.cs" />
@@ -73,6 +72,9 @@
     <Compile Include="Enums\UnitAttribute.cs" />
     <Compile Include="JSON.cs" />
     <Compile Include="MapData.cs" />
+    <Compile Include="MasterData\MainAssetBundleMaster.cs" />
+    <Compile Include="MasterData\QuestAssetBundleMaster.cs" />
+    <Compile Include="MasterData\AssetBundleMaster.cs" />
     <Compile Include="MasterData\GachaItemMaster.cs" />
     <Compile Include="MasterData\MapEventMaster.cs" />
     <Compile Include="MasterData\TalkDialogHeaderMaster.cs" />

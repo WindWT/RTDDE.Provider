@@ -61,6 +61,7 @@ namespace RTDDE.Provider.Enums
         AIR,
         WIN_CAN,
         WPK_STK,
+        CHAOS_FST,
         PLAYER_END,
         MS01SLA,
         MS01SQU,

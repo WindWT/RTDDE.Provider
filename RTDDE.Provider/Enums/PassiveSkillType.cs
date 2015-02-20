@@ -116,6 +116,8 @@ namespace RTDDE.Provider.Enums
         DVG_NORMAL_SKILL = 107,
         ATTRIBUTE_EXPANEL_ATTACK = 108,
         DIFFER_ATTRI_ATTACK = 109,
-        BUFFER = 110,
+        AUTO_ARCANE = 110,
+        LIFE_AND_ATK_CLASS_ENHANCE = 111,
+        BUFFER = 112,
     }
 }

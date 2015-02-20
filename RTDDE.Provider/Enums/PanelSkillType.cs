@@ -43,5 +43,6 @@ namespace RTDDE.Provider.Enums
         SPPANEL_USE_ATTACK_UP = 34,
         SPPANEL_USE_LIFERECOVER_FIX = 35,
         SPPANEL_USE_ENEMY_DAMAGE = 36,
+        LIMIT_ENEMY_DAMAGE = 37,
     }
 }

@@ -42,6 +42,8 @@ namespace RTDDE.Provider.Enums
         LIMIT_SKILL_MASTER = 91,
         LIMIT_SKILL_RANK_MASTER = 92,
         MAP_EVENT_MASTER = 95,
+        MAIN_ASSET_BUNDLE_MASTER = 121,
+        QUEST_ASSET_BUNDLE_MASTER = 122,
         LEVEL_DATA_MASTER = 999,  //not exist after 1.8?
     }
 }
