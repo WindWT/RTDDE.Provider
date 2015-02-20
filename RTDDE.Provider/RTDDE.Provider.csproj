@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssetBundleDefine.cs" />
     <Compile Include="DAL.cs" />
     <Compile Include="Enums\AccessoryType.cs" />
     <Compile Include="Enums\ActiveSkillType.cs" />
