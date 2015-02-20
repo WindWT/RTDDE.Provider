@@ -1064,5 +1064,48 @@ namespace RTDDE.Provider.MasterData
                 this.eef = value;
             }
         }
+
+        public int GetOpenType(int type)
+        {
+            switch (type) {
+                case 0: return this.open_type_1;
+                case 1: return this.open_type_2;
+                case 2: return this.open_type_3;
+                case 3: return this.open_type_4;
+                case 4: return this.open_type_5;
+                case 5: return this.open_type_6;
+                case 6: return this.open_type_7;
+                case 7: return this.open_type_8;
+                default: return 0;
+            }
+        }
+        public int GetOpenParam(int param)
+        {
+            switch (param) {
+                case 0: return this.open_param_1;
+                case 1: return this.open_param_2;
+                case 2: return this.open_param_3;
+                case 3: return this.open_param_4;
+                case 4: return this.open_param_5;
+                case 5: return this.open_param_6;
+                case 6: return this.open_param_7;
+                case 7: return this.open_param_8;
+                default: return 0;
+            }
+        }
+        public int GetGroupParam(int group)
+        {
+            switch (group) {
+                case 0: return this.open_group_1;
+                case 1: return this.open_group_2;
+                case 2: return this.open_group_3;
+                case 3: return this.open_group_4;
+                case 4: return this.open_group_5;
+                case 5: return this.open_group_6;
+                case 6: return this.open_group_7;
+                case 7: return this.open_group_8;
+                default: return 0;
+            }
+        }
     }
 }

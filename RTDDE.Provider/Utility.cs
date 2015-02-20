@@ -40,96 +40,96 @@ namespace RTDDE.Provider
     public class Utility
     {
         public static bool UseLocalTime { get; set; }
-        public static OpenType ParseOpentype(string type, string param, int group)
+        public static OpenType ParseOpentype(int type, int param, int group)
         {
             OpenType result = new OpenType();
             result.Group = group;
             switch (type) {
-                case "0": {
+                case 0: {
                         result.Type = string.Empty;
                         result.Param = string.Empty;
                         break;
                     }
-                case "1": {
+                case 1: {
                         result.Type = "每周";
                         switch (param) {
-                            case "0": result.Param = "日"; break;
-                            case "1": result.Param = "一"; break;
-                            case "2": result.Param = "二"; break;
-                            case "3": result.Param = "三"; break;
-                            case "4": result.Param = "四"; break;
-                            case "5": result.Param = "五"; break;
-                            case "6": result.Param = "六"; break;
-                            case "7": result.Param = "日一二三四五六"; break;
+                            case 0: result.Param = "日"; break;
+                            case 1: result.Param = "一"; break;
+                            case 2: result.Param = "二"; break;
+                            case 3: result.Param = "三"; break;
+                            case 4: result.Param = "四"; break;
+                            case 5: result.Param = "五"; break;
+                            case 6: result.Param = "六"; break;
+                            case 7: result.Param = "日一二三四五六"; break;
                             default: break;
                         }
                         break;
                     }
-                case "2": {
+                case 2: {
                         result.Type = "完成关卡";
                         string sql = @"SELECT name FROM quest_master WHERE id={0}";
                         result.Param = param + "|" + DAL.Get<string>(String.Format(sql, param));
                         break;
                     }
-                case "3":   //not used
+                case 3:   //not used
                     {
                         result.Type += "3";
                         result.Param += param;
                         break;
                     }
-                case "4": {
+                case 4: {
                         result.Type = "开始日期";
                         result.Param = ParseRTDDate(param).ToString("yyyy-MM-dd HH:mm ddd");
                         break;
                     }
-                case "5": {
+                case 5: {
                         result.Type = "结束日期";
                         result.Param = ParseRTDDate(param).ToString("yyyy-MM-dd HH:mm ddd");
                         break;
                     }
-                case "6": {
+                case 6: {
                         result.Type = "是否关闭";
-                        result.Param = param;
+                        result.Param = param.ToString();
                         break;
                     }
-                case "7": {
+                case 7: {
                         result.Type = "完成关卡";
                         string sql = @"SELECT name FROM quest_master WHERE id={0}";
                         result.Param = param + "|" + DAL.Get<string>(String.Format(sql, param));
                         break;
                     }
-                case "8": {
+                case 8: {
                         result.Type = "支线任务";
-                        result.Param = param;
+                        result.Param = param.ToString();
                         break;
                     }
-                case "9": {
+                case 9: {
                         result.Type = "不完成关卡";
                         string sql = @"SELECT name FROM quest_master WHERE id={0}";
                         result.Param = param + "|" + DAL.Get<string>(String.Format(sql, param));
                         break;
                     }
-                case "10": {
+                case 10: {
                         result.Type = "自身等级大于等于";
-                        result.Param = param;
+                        result.Param = param.ToString();
                         break;
                     }
-                case "11": {
+                case 11: {
                         result.Type = "自身等级小于等于";
-                        result.Param = param;
+                        result.Param = param.ToString();
                         break;
                     }
-                case "12": {
+                case 12: {
                         result.Type = "教程通过";
-                        result.Param = param;
+                        result.Param = param.ToString();
                         break;
                     }
-                case "13": {
+                case 13: {
                         result.Type = "教程未通过";
-                        result.Param = param;
+                        result.Param = param.ToString();
                         break;
                     }
-                case "14": {
+                case 14: {
                         result.Type = "队长限定";
                         //result.OpentypeParam = opentypeParam + "|" + ParseUnitName(opentypeParam);
                         StringBuilder sb = new StringBuilder();
@@ -146,39 +146,27 @@ namespace RTDDE.Provider
             }
             return result;
         }
-        public static string ParsePresenttype(string presenttype)
+        public static string ParsePresentType(int type)
         {
-            switch (presenttype) {
-                case "0": return "无";
-                case "1": return "COIN";
-                case "2": return "FP";
-                case "3": return "STONE";
-                case "4": return "UNIT";
-                default: return "未知" + presenttype.ToString();
+            switch (type) {
+                case 0: return "NONE";
+                case 1: return "COIN";
+                case 2: return "FP";
+                case 3: return "STONE";
+                case 4: return "UNIT";
+                default: return "未知" + type.ToString();
             }
         }
-        public static string ParseBonustype(string bonustype)
+        public static string ParseBonusType(int type)
         {
-            switch (bonustype) {
-                case "0": {
-                        return "无";
-                    }
-                case "1": {
-                        return "体力半减";
-                    }
-                case "2": {
-                        return "双倍钱";
-                    }
-                case "3": {
-                        return "双倍经验";
-                    }
-                case "4": {
-                        return "双倍魂?";
-                    }
-                case "5": {
-                        return "双倍掉落";
-                    }
-                default: return "未知" + bonustype.ToString();
+            switch (type) {
+                case 0: return "NONE";
+                case 1: return "体力半减";
+                case 2: return "双倍钱";
+                case 3: return "双倍经验";
+                case 4: return "双倍魂?";
+                case 5: return "双倍掉落";
+                default: return "未知" + type.ToString();
             }
         }
         public static string ParseAttributetype(int attributetype)
@@ -305,14 +293,7 @@ namespace RTDDE.Provider
         }
         public static string ParseQuestKind(int kind)
         {
-            switch (kind) {
-                case 0: return "NORMAL";
-                case 1000: return "EVENT";
-                case 1010: return "RUINS";
-                case 1011: return "CAVE";
-                case 1020: return "SP_EVENT";
-                default: return "UNKNOWN_" + kind.ToString();
-            }
+            return ((E_QUEST_KIND)kind).ToString();
         }
         [Obsolete]
         public static string ParseZBTNKind(int kind)
@@ -345,22 +326,18 @@ namespace RTDDE.Provider
         {
             return ((Message_Name)type).ToString();
         }
-        public static DateTime ParseRTDDate(string rtdDate, bool isUtcDate = false)
+        public static DateTime ParseRTDDate(int rtdDate, bool isUtcDate = false)
         {
-            if (string.IsNullOrWhiteSpace(rtdDate)) {
+            if (rtdDate == 0) {
                 return DateTime.MinValue;
             }
-            int i = int.Parse(rtdDate);
-            if (i == 0) {
-                return DateTime.MinValue;
-            }
-            int hour = i % 100;
-            i /= 100;
-            int day = i % 100;
-            i /= 100;
-            int month = i % 100;
-            i /= 100;
-            int year = i % 10000;
+            int hour = rtdDate % 100;
+            rtdDate /= 100;
+            int day = rtdDate % 100;
+            rtdDate /= 100;
+            int month = rtdDate % 100;
+            rtdDate /= 100;
+            int year = rtdDate % 10000;
             DateTime t = new DateTime(year, month, day, hour, 0, 0, isUtcDate ? DateTimeKind.Utc : DateTimeKind.Unspecified);
             TimeZoneInfo jpZone = TimeZoneInfo.FindSystemTimeZoneById("Tokyo Standard Time");
             if (isUtcDate) {
@@ -372,27 +349,27 @@ namespace RTDDE.Provider
             return t;
         }
 
-        public static string ToRTDDate(DateTime time,bool toUtcDate)
+        public static int ToRTDDate(DateTime time, bool toUtcDate)
         {
             DateTime utcTime = time.ToUniversalTime();
             TimeZoneInfo jpZone = TimeZoneInfo.FindSystemTimeZoneById("Tokyo Standard Time");
             if (toUtcDate == false) {
                 utcTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, jpZone);
             }
-            return utcTime.ToString("yyyyMMddHH");
+            return int.Parse(utcTime.ToString("yyyyMMddHH"));
         }
-        public static string ParseUnitName(string unitId)
+        public static string ParseUnitName(int unitId)
         {
             string sql = @"SELECT name FROM unit_master WHERE id={0}";
             return DAL.Get<string>(String.Format(sql, unitId));
         }
-        public static string ParseUnitGroupName(string unitUiId)
+        public static string ParseUnitGroupName(int unitUiId)
         {
-            string sql = @"SELECT id,name FROM unit_master WHERE ui_id={0}";
-            DataTable dt = DAL.GetDataTable(String.Format(sql, unitUiId));
+            string sql = @"SELECT * FROM unit_master WHERE ui_id={0}";
+            List<UnitMaster> unitMasters = DAL.ToList<UnitMaster>(String.Format(sql, unitUiId));
             StringBuilder sb = new StringBuilder();
-            foreach (DataRow dr in dt.Rows) {
-                sb.AppendFormat("{0}|{1}", dr["id"].ToString(), dr["name"].ToString());
+            foreach (UnitMaster unit in unitMasters) {
+                sb.AppendFormat("{0}|{1}", unit.id, unit.name);
                 sb.AppendLine();
             }
             return sb.ToString().Trim();
@@ -423,15 +400,29 @@ namespace RTDDE.Provider
         {
             return (int)Math.Round(baseAttr * ((lv - 1) * (up * 0.01) + 1));
         }
-        public static string ParseBgmFileName(int no)
+        public static string ParseBgmName(int no)
         {
-            return "bgm_rtd_" + no.ToString("D2");
+            switch (no) {
+                case 1: return "01 LORD(01)";
+                case 2: return "03 LIFE(02)";
+                case 3: return "04 COLLISION(03)";
+                case 4: return "05 DRAGON(04)";
+                case 5: return "13 CLEAR(05)";
+                case 6: return "02 CHOSEN(06)";
+                case 7: return "14 OVER(07)";
+                case 8: return "06 SKY HIGH(08)";
+                case 9: return "07 OUTBREAK(09)";
+                case 10: return "11 WHITE(10)";
+                case 11: return "12 BRAVE(11)";
+                case 12: return "XX DG_FIELD(12)";
+                case 13: return "XX DG_BOSS(13)";
+                default: return string.Format("?? UNKNOWN({0})", no.ToString("D2"));
+            }
         }
 
         public static bool IsUnitEnemy(int num)
         {
-            switch (num)
-            {
+            switch (num) {
                 case 30:
                     return true;
                 case 31:
@@ -441,15 +432,13 @@ namespace RTDDE.Provider
                 case 37:
                     return true;
                 default:
-                    switch (num - 22)
-                    {
+                    switch (num - 22) {
                         case 0:
                             return true;
                         case 2:
                             return true;
                         default:
-                            switch (num - 45)
-                            {
+                            switch (num - 45) {
                                 case 0:
                                     return true;
                                 case 2:
