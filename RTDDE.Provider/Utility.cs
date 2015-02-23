@@ -3,6 +3,7 @@ using RTDDE.Provider.MasterData;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -73,7 +74,7 @@ namespace RTDDE.Provider
                     }
                 case 3:   //not used
                     {
-                        result.Type += "3";
+                        result.Type += "UserID";
                         result.Param += param;
                         break;
                     }
@@ -136,6 +137,26 @@ namespace RTDDE.Provider
                         sb.AppendLine("角色组|" + param);
                         sb.Append(ParseUnitGroupName(param));
                         result.Param = sb.ToString();
+                        break;
+                    }
+                case 15: {
+                        result.Type = "当日限定";
+                        DateTime day;
+                        if (DateTime.TryParseExact(param.ToString("D8"), "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out day)) {
+                            result.Param = day.ToString("yyyy-MM-dd");
+                        }
+                        break;
+                    }
+                case 16: {
+                        result.Type = "Everyday";
+                        break;
+                    }
+                case 100: {
+                        result.Type = "时间段内";
+                        DateTime open = ParseRTDTime(param, true);
+                        DateTime close = ParseRTDTime(group, true);
+                        result.Param = string.Format("{0}~{1}", open.ToString("HH:mm"), close.ToString("HH:mm"));
+                        result.Group = -1;
                         break;
                     }
                 default: {
@@ -326,7 +347,28 @@ namespace RTDDE.Provider
         {
             return ((Message_Name)type).ToString();
         }
-        public static DateTime ParseRTDDate(int rtdDate, bool isUtcDate = false)
+        private static DateTime ConvertTimeZone(DateTime dateTime, bool isUtc)
+        {
+            TimeZoneInfo jpZone = TimeZoneInfo.FindSystemTimeZoneById("Tokyo Standard Time");
+            if (isUtc) {
+                return UseLocalTime ? dateTime.ToLocalTime() : TimeZoneInfo.ConvertTime(dateTime, jpZone);
+            }
+            else {
+                return UseLocalTime ? TimeZoneInfo.ConvertTime(dateTime, jpZone, TimeZoneInfo.Local) : dateTime;
+            }
+        }
+        public static DateTime ParseRTDTime(int rtdTime, bool isUtc = false)
+        {
+            if (rtdTime == 0) {
+                return DateTime.MinValue;
+            }
+            DateTime t = DateTime.MinValue;
+            if (DateTime.TryParseExact(rtdTime.ToString("D4"), "HHmm", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out t) == false) {
+                return t;
+            }
+            return ConvertTimeZone(t, isUtc);
+        }
+        public static DateTime ParseRTDDate(int rtdDate, bool isUtc = false)
         {
             if (rtdDate == 0) {
                 return DateTime.MinValue;
@@ -338,15 +380,8 @@ namespace RTDDE.Provider
             int month = rtdDate % 100;
             rtdDate /= 100;
             int year = rtdDate % 10000;
-            DateTime t = new DateTime(year, month, day, hour, 0, 0, isUtcDate ? DateTimeKind.Utc : DateTimeKind.Unspecified);
-            TimeZoneInfo jpZone = TimeZoneInfo.FindSystemTimeZoneById("Tokyo Standard Time");
-            if (isUtcDate) {
-                t = UseLocalTime ? t.ToLocalTime() : TimeZoneInfo.ConvertTime(t, jpZone);
-            }
-            else {
-                t = UseLocalTime ? TimeZoneInfo.ConvertTime(t, jpZone, TimeZoneInfo.Local) : t;
-            }
-            return t;
+            DateTime t = new DateTime(year, month, day, hour, 0, 0, isUtc ? DateTimeKind.Utc : DateTimeKind.Unspecified);
+            return ConvertTimeZone(t, isUtc);
         }
 
         public static int ToRTDDate(DateTime time, bool toUtcDate)
