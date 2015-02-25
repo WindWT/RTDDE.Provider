@@ -438,6 +438,7 @@ namespace RTDDE.Provider
         public static string ParseBgmName(int no)
         {
             switch (no) {
+                case 0: return "NO BGM";
                 case 1: return "01 LORD(01)";
                 case 2: return "03 LIFE(02)";
                 case 3: return "04 COLLISION(03)";
