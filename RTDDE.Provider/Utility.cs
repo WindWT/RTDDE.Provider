@@ -317,6 +317,10 @@ namespace RTDDE.Provider
         {
             return ((E_QUEST_KIND)kind).ToString();
         }
+        public static string ParseChallengeType(int type)
+        {
+            return ((ECHALLENGE_TYPE)type).ToString();
+        }
         public static string ParseZBTNKind(int kind)
         {
             switch (kind) {
