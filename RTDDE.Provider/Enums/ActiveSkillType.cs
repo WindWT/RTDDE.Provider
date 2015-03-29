@@ -84,5 +84,6 @@ namespace RTDDE.Provider.Enums
         LimitDefenceUp = 75,
         LimitColorEnhance = 76,
         DestructFixDamage = 77,
+        ElementMultiAttack = 78,
     }
 }

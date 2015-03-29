@@ -34,7 +34,8 @@ namespace RTDDE.Provider
             "V1030A0ui3BCFdpgig2INGDBOSOgtNvJHLQBj",
             "V1031wlkc1YB6cB0nGXtglkmixajjhA0u5sT9",
             "V1032sMM2ZMTiBjnepB4AscIUifaolEIbhUJ4",
-            "V1033eKyylg87Ot0izVivIMeq6uGYCyJObZ3T"
+            "V1033eKyylg87Ot0izVivIMeq6uGYCyJObZ3T",
+            "V1034S42pVChF89Py647GTKzIKwLBmIhKAzAu"
         };
         public static string GetVersionDirectory(int folderId)
         {

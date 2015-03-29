@@ -118,6 +118,11 @@ namespace RTDDE.Provider.Enums
         DIFFER_ATTRI_ATTACK = 109,
         AUTO_ARCANE = 110,
         LIFE_AND_ATK_CLASS_ENHANCE = 111,
-        BUFFER = 112,
+        POINT_UP_PP = 112,
+        POINT_UP_ENEMY_EXP = 113,
+        POINT_UP_ATTR_EXP = 114,
+        ATTACK_ENHANCE_BY_USE_PANEL = 115,
+        TURN_COST_0_BY_CHAIN_PANEL = 116,
+        BUFFER = 117,
     }
 }
