@@ -55,5 +55,6 @@ namespace RTDDE.Provider.Enums
         MINE = 48,
         GOLD = 49,
         NOTHING = 50,
+        RAGE_BOSS = 51,
     }
 }

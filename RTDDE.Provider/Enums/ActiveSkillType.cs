@@ -85,5 +85,10 @@ namespace RTDDE.Provider.Enums
         LimitColorEnhance = 76,
         DestructFixDamage = 77,
         ElementMultiAttack = 78,
+        GamblingAttack = 79,
+        HealPartyAmdEnemy = 80,
+        ChangeSpPanel = 81,
+        ChangePanelMajority = 82,
+        UnconditionMultiAttack = 83,
     }
 }

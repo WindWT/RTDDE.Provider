@@ -123,6 +123,8 @@ namespace RTDDE.Provider.Enums
         POINT_UP_ATTR_EXP = 114,
         ATTACK_ENHANCE_BY_USE_PANEL = 115,
         TURN_COST_0_BY_CHAIN_PANEL = 116,
-        BUFFER = 117,
+        COUNTER_AND_DAMAGE_DOWN = 117,
+        ELEMENT_MIX_EXPANEL_ATTACK = 118,
+        BUFFER = 119,
     }
 }

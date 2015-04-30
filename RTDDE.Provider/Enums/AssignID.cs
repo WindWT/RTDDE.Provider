@@ -114,6 +114,7 @@ namespace RTDDE.Provider.Enums
         MS00_BOMB,
         MS00_GOLD,
         MS00_EMPTY,
+        MS06DRA_2,
         MAX,
     }
 }
