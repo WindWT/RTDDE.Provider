@@ -40,6 +40,7 @@ using RTDDE.Provider.MasterData.Wrapper;
         public List<Byte> quest_new_flags;
         public QuestChallengeState[] quest_challenge_state;
         public QuestChallengeRewardState[] quest_challenge_reward_state;
+        public string[] ver_folder;
         public {0}[] GetMaster()
         {{
             return this.result[0].data_list;
