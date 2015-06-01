@@ -44,6 +44,15 @@ namespace RTDDE.Provider.Enums
         MAP_EVENT_MASTER = 95,
         MAIN_ASSET_BUNDLE_MASTER = 121,
         QUEST_ASSET_BUNDLE_MASTER = 122,
+        SPIRITS_TREE = 150,
+        SPIRITS_TREE_NUTS = 151,
+        SPIRITS_TREE_NUTS_POS = 152,
+        SPIRITS_TREE_ADD = 153,
+        SPIRITS_TREE_COLLECTION = 154,
+        SPIRITS_TREE_ACTION = 155,
+        SPIRITS_TREE_CHIBI_POS = 156,
+        SPIRITS_TREE_PARAM = 158,
+        SPIRITS_TREE_NUTS_QUEUE = 159,
         LEVEL_DATA_MASTER = 999,  //not exist after 1.8?
     }
 }

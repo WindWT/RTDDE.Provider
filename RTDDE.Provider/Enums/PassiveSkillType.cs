@@ -125,6 +125,13 @@ namespace RTDDE.Provider.Enums
         TURN_COST_0_BY_CHAIN_PANEL = 116,
         COUNTER_AND_DAMAGE_DOWN = 117,
         ELEMENT_MIX_EXPANEL_ATTACK = 118,
-        BUFFER = 119,
+        MOVE_PLUS_ONE = 119,
+        MOVE_PANEL_RANDOM = 120,
+        LEADER_STATUS_COPY = 121,
+        AUTO_REGENE = 122,
+        PANEL_RATE_CHANGE = 123,
+        MOVE_UPSIDE_ENHANCE = 124,
+        ELEMENT_PARAM_MULTI = 125,
+        MAX = 126,
     }
 }

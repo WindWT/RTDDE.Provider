@@ -45,6 +45,15 @@ namespace RTDDE.Provider.Enums
             {MASTERDB.MAP_EVENT_MASTER,typeof(MapEventMaster)},
             {MASTERDB.MAIN_ASSET_BUNDLE_MASTER,typeof(MainAssetBundleMaster)},
             {MASTERDB.QUEST_ASSET_BUNDLE_MASTER,typeof(QuestAssetBundleMaster)},
+            {MASTERDB.SPIRITS_TREE,typeof(SpiritsTreeMaster)},
+            {MASTERDB.SPIRITS_TREE_NUTS,typeof(SpiritsNutsMaster)},
+            {MASTERDB.SPIRITS_TREE_NUTS_POS,typeof(SpiritsNutsPositionMaster)},
+            {MASTERDB.SPIRITS_TREE_ADD,typeof(SpiritsAddMaster)},
+            {MASTERDB.SPIRITS_TREE_COLLECTION,typeof(SpiritsCollectionMaster)},
+            {MASTERDB.SPIRITS_TREE_ACTION,typeof(SpiritsActionMaster)},
+            {MASTERDB.SPIRITS_TREE_CHIBI_POS,typeof(SpiritsPositionMaster)},
+            {MASTERDB.SPIRITS_TREE_PARAM,typeof(SpiritsParamMaster)},
+            {MASTERDB.SPIRITS_TREE_NUTS_QUEUE,typeof(SpiritsNutsQueueMaster)},
         };
 
         public static MASTERDB Type2Enum(Type type)

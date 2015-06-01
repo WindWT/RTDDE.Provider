@@ -90,5 +90,9 @@ namespace RTDDE.Provider.Enums
         ChangeSpPanel = 81,
         ChangePanelMajority = 82,
         UnconditionMultiAttack = 83,
+        UnlimitedDouble = 84,
+        EnhancePartyAttack = 85,
+        ChangePanelMajorClass = 86,
+        EnhancePartyEnemyAtk = 87,
     }
 }
