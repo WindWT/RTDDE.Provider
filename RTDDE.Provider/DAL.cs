@@ -393,7 +393,7 @@ namespace RTDDE.Provider
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        private static string GetColumnPKName(Type type)
+        public static string GetColumnPKName(Type type)
         {
             FieldInfo[] fields = type.GetFields();
             PropertyInfo[] properties = type.GetProperties();
