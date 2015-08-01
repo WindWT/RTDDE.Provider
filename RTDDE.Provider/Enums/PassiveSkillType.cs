@@ -129,9 +129,10 @@ namespace RTDDE.Provider.Enums
         MOVE_PANEL_RANDOM = 120,
         LEADER_STATUS_COPY = 121,
         AUTO_REGENE = 122,
-        PANEL_RATE_CHANGE = 123,
         MOVE_UPSIDE_ENHANCE = 124,
         ELEMENT_PARAM_MULTI = 125,
-        MAX = 126,
+        ENHANCE_USE_PANEL_LIMIT = 126,
+        PANEL_RATE_CHANGE = 127,
+        MAX = 128,
     }
 }

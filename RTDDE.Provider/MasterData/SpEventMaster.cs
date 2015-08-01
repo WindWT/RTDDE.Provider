@@ -8,6 +8,7 @@ namespace RTDDE.Provider.MasterData
     [Serializable]
     public class SpEventMaster
     {
+        [DALColumn(PrimaryKey = true)]
         public int sp_event_id;
         public string icon;
         public string target_name;

@@ -35,6 +35,9 @@ namespace RTDDE.Provider.Enums
         ELEMENTAL_ATTACK_ENH_PARAM,
         SYNERGY_ENHANCE_ENH_PARAM,
         ENHANCE_DOUBLING_ENH_PARAM,
+        CHASE_DAMAGE_UP,
+        COUNTER_DAMAGE_UP,
+        INITIAL_SOUL_GRADEUP,
         MAX,
     }
 }

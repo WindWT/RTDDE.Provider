@@ -18,6 +18,8 @@ namespace RTDDE.Provider.MasterData
         public int num_01;
         public int num_02;
         public int num_03;
+        public int num_04;
+        public int num_05;
         public string text;
     }
 }
