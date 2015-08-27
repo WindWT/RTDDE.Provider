@@ -133,6 +133,7 @@ namespace RTDDE.Provider.Enums
         ELEMENT_PARAM_MULTI = 125,
         ENHANCE_USE_PANEL_LIMIT = 126,
         PANEL_RATE_CHANGE = 127,
-        MAX = 128,
+        PANEL_OVER_HEAL = 128,
+        MAX = 129,
     }
 }

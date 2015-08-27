@@ -94,5 +94,6 @@ namespace RTDDE.Provider.Enums
         EnhancePartyAttack = 85,
         ChangePanelMajorClass = 86,
         EnhancePartyEnemyAtk = 87,
+        VlitinaCanon = 88,
     }
 }

@@ -92,976 +92,853 @@ namespace RTDDE.Provider.MasterData
         public int hl;
         public int eci;
         public int eef;
+        private int gd0;
+        private int ge0;
+        private int gl0;
+        private int gda0;
+        private int gd1;
+        private int ge1;
+        private int gl1;
+        private int gda1;
+        private int gd2;
+        private int ge2;
+        private int gl2;
+        private int gda2;
 
-        public int id
-        {
-            get
-            {
+        public int id {
+            get {
                 return this.i;
             }
-            set
-            {
+            set {
                 this.i = value;
             }
         }
 
-        public string name
-        {
-            get
-            {
+        public string name {
+            get {
                 return this.n;
             }
-            set
-            {
+            set {
                 this.n = value;
             }
         }
 
-        public string name_sub
-        {
-            get
-            {
+        public string name_sub {
+            get {
                 return this.ns;
             }
-            set
-            {
+            set {
                 this.ns = value;
             }
         }
 
-        public int division
-        {
-            get
-            {
+        public int division {
+            get {
                 return this.d;
             }
-            set
-            {
+            set {
                 this.d = value;
             }
         }
 
-        public int parent_area_id
-        {
-            get
-            {
+        public int parent_area_id {
+            get {
                 return this.pai;
             }
-            set
-            {
+            set {
                 this.pai = value;
             }
         }
 
-        public uint parent_map_event_id
-        {
-            get
-            {
+        public uint parent_map_event_id {
+            get {
                 return this.pmei;
             }
-            set
-            {
+            set {
                 this.pmei = value;
             }
         }
 
-        public int map
-        {
-            get
-            {
+        public int map {
+            get {
                 return this.m;
             }
-            set
-            {
+            set {
                 this.m = value;
             }
         }
 
-        public int stamina
-        {
-            get
-            {
+        public int stamina {
+            get {
                 return this.s;
             }
-            set
-            {
+            set {
                 this.s = value;
             }
         }
 
-        public int soul
-        {
-            get
-            {
+        public int soul {
+            get {
                 return this.so;
             }
-            set
-            {
+            set {
                 this.so = value;
             }
         }
 
-        public int kind
-        {
-            get
-            {
+        public int kind {
+            get {
                 return this.k;
             }
-            set
-            {
+            set {
                 this.k = value;
             }
         }
 
-        public int zbtn_kind
-        {
-            get
-            {
+        public int zbtn_kind {
+            get {
                 return this.z;
             }
-            set
-            {
+            set {
                 this.z = value;
             }
         }
 
-        public int pt_num
-        {
-            get
-            {
+        public int pt_num {
+            get {
                 return this.p;
             }
-            set
-            {
+            set {
                 this.p = value;
             }
         }
 
-        public int kpi_class
-        {
-            get
-            {
+        public int kpi_class {
+            get {
                 return this.kp;
             }
-            set
-            {
+            set {
                 this.kp = value;
             }
         }
 
-        public int flag_no
-        {
-            get
-            {
+        public int flag_no {
+            get {
                 return this.f;
             }
-            set
-            {
+            set {
                 this.f = value;
             }
         }
 
-        public int display_order
-        {
-            get
-            {
+        public int display_order {
+            get {
                 return this.dio;
             }
-            set
-            {
+            set {
                 this.dio = value;
             }
         }
 
-        public int difficulty
-        {
-            get
-            {
+        public int difficulty {
+            get {
                 return this.df;
             }
-            set
-            {
+            set {
                 this.df = value;
             }
         }
 
-        public int quest_difficulty
-        {
-            get
-            {
+        public int quest_difficulty {
+            get {
                 return this.el;
             }
-            set
-            {
+            set {
                 this.el = value;
             }
         }
 
-        public int distance
-        {
-            get
-            {
+        public int distance {
+            get {
                 return this.ds;
             }
-            set
-            {
+            set {
                 this.ds = value;
             }
         }
 
-        public int sp_event_id
-        {
-            get
-            {
+        public int sp_event_id {
+            get {
                 return this.sp;
             }
-            set
-            {
+            set {
                 this.sp = value;
             }
         }
 
-        public int open_date
-        {
-            get
-            {
+        public int open_date {
+            get {
                 return this.od;
             }
-            set
-            {
+            set {
                 this.od = value;
             }
         }
 
-        public int close_date
-        {
-            get
-            {
+        public int close_date {
+            get {
                 return this.cd;
             }
-            set
-            {
+            set {
                 this.cd = value;
             }
         }
 
-        public int open_type_1
-        {
-            get
-            {
+        public int open_type_1 {
+            get {
                 return this.o1;
             }
-            set
-            {
+            set {
                 this.o1 = value;
             }
         }
 
-        public int open_param_1
-        {
-            get
-            {
+        public int open_param_1 {
+            get {
                 return this.op1;
             }
-            set
-            {
+            set {
                 this.op1 = value;
             }
         }
 
-        public int open_group_1
-        {
-            get
-            {
+        public int open_group_1 {
+            get {
                 return this.og1;
             }
-            set
-            {
+            set {
                 this.og1 = value;
             }
         }
 
-        public int open_type_2
-        {
-            get
-            {
+        public int open_type_2 {
+            get {
                 return this.o2;
             }
-            set
-            {
+            set {
                 this.o2 = value;
             }
         }
 
-        public int open_param_2
-        {
-            get
-            {
+        public int open_param_2 {
+            get {
                 return this.op2;
             }
-            set
-            {
+            set {
                 this.op2 = value;
             }
         }
 
-        public int open_group_2
-        {
-            get
-            {
+        public int open_group_2 {
+            get {
                 return this.og2;
             }
-            set
-            {
+            set {
                 this.og2 = value;
             }
         }
 
-        public int open_type_3
-        {
-            get
-            {
+        public int open_type_3 {
+            get {
                 return this.o3;
             }
-            set
-            {
+            set {
                 this.o3 = value;
             }
         }
 
-        public int open_param_3
-        {
-            get
-            {
+        public int open_param_3 {
+            get {
                 return this.op3;
             }
-            set
-            {
+            set {
                 this.op3 = value;
             }
         }
 
-        public int open_group_3
-        {
-            get
-            {
+        public int open_group_3 {
+            get {
                 return this.og3;
             }
-            set
-            {
+            set {
                 this.og3 = value;
             }
         }
 
-        public int open_type_4
-        {
-            get
-            {
+        public int open_type_4 {
+            get {
                 return this.o4;
             }
-            set
-            {
+            set {
                 this.o4 = value;
             }
         }
 
-        public int open_param_4
-        {
-            get
-            {
+        public int open_param_4 {
+            get {
                 return this.op4;
             }
-            set
-            {
+            set {
                 this.op4 = value;
             }
         }
 
-        public int open_group_4
-        {
-            get
-            {
+        public int open_group_4 {
+            get {
                 return this.og4;
             }
-            set
-            {
+            set {
                 this.og4 = value;
             }
         }
 
-        public int open_type_5
-        {
-            get
-            {
+        public int open_type_5 {
+            get {
                 return this.o5;
             }
-            set
-            {
+            set {
                 this.o5 = value;
             }
         }
 
-        public int open_param_5
-        {
-            get
-            {
+        public int open_param_5 {
+            get {
                 return this.op5;
             }
-            set
-            {
+            set {
                 this.op5 = value;
             }
         }
 
-        public int open_group_5
-        {
-            get
-            {
+        public int open_group_5 {
+            get {
                 return this.og5;
             }
-            set
-            {
+            set {
                 this.og5 = value;
             }
         }
 
-        public int open_type_6
-        {
-            get
-            {
+        public int open_type_6 {
+            get {
                 return this.o6;
             }
-            set
-            {
+            set {
                 this.o6 = value;
             }
         }
 
-        public int open_param_6
-        {
-            get
-            {
+        public int open_param_6 {
+            get {
                 return this.op6;
             }
-            set
-            {
+            set {
                 this.op6 = value;
             }
         }
 
-        public int open_group_6
-        {
-            get
-            {
+        public int open_group_6 {
+            get {
                 return this.og6;
             }
-            set
-            {
+            set {
                 this.og6 = value;
             }
         }
 
-        public int open_type_7
-        {
-            get
-            {
+        public int open_type_7 {
+            get {
                 return this.o7;
             }
-            set
-            {
+            set {
                 this.o7 = value;
             }
         }
 
-        public int open_param_7
-        {
-            get
-            {
+        public int open_param_7 {
+            get {
                 return this.op7;
             }
-            set
-            {
+            set {
                 this.op7 = value;
             }
         }
 
-        public int open_group_7
-        {
-            get
-            {
+        public int open_group_7 {
+            get {
                 return this.og7;
             }
-            set
-            {
+            set {
                 this.og7 = value;
             }
         }
 
-        public int open_type_8
-        {
-            get
-            {
+        public int open_type_8 {
+            get {
                 return this.o8;
             }
-            set
-            {
+            set {
                 this.o8 = value;
             }
         }
 
-        public int open_param_8
-        {
-            get
-            {
+        public int open_param_8 {
+            get {
                 return this.op8;
             }
-            set
-            {
+            set {
                 this.op8 = value;
             }
         }
 
-        public int open_group_8
-        {
-            get
-            {
+        public int open_group_8 {
+            get {
                 return this.og8;
             }
-            set
-            {
+            set {
                 this.og8 = value;
             }
         }
 
-        public int open_sp_event_id
-        {
-            get
-            {
+        public int open_sp_event_id {
+            get {
                 return this.oi;
             }
-            set
-            {
+            set {
                 this.oi = value;
             }
         }
 
-        public int open_sp_event_point
-        {
-            get
-            {
+        public int open_sp_event_point {
+            get {
                 return this.op;
             }
-            set
-            {
+            set {
                 this.op = value;
             }
         }
 
-        public uint bonus_start
-        {
-            get
-            {
+        public uint bonus_start {
+            get {
                 return this.b;
             }
-            set
-            {
+            set {
                 this.b = value;
             }
         }
 
-        public uint bonus_end
-        {
-            get
-            {
+        public uint bonus_end {
+            get {
                 return this.be;
             }
-            set
-            {
+            set {
                 this.be = value;
             }
         }
 
-        public int bonus_type
-        {
-            get
-            {
+        public int bonus_type {
+            get {
                 return this.bt;
             }
-            set
-            {
+            set {
                 this.bt = value;
             }
         }
 
-        public int panel_sword
-        {
-            get
-            {
+        public int panel_sword {
+            get {
                 return this.ps;
             }
-            set
-            {
+            set {
                 this.ps = value;
             }
         }
 
-        public int panel_lance
-        {
-            get
-            {
+        public int panel_lance {
+            get {
                 return this.pl;
             }
-            set
-            {
+            set {
                 this.pl = value;
             }
         }
 
-        public int panel_archer
-        {
-            get
-            {
+        public int panel_archer {
+            get {
                 return this.pa;
             }
-            set
-            {
+            set {
                 this.pa = value;
             }
         }
 
-        public int panel_cane
-        {
-            get
-            {
+        public int panel_cane {
+            get {
                 return this.pc;
             }
-            set
-            {
+            set {
                 this.pc = value;
             }
         }
 
-        public int panel_heart
-        {
-            get
-            {
+        public int panel_heart {
+            get {
                 return this.ph;
             }
-            set
-            {
+            set {
                 this.ph = value;
             }
         }
 
-        public int panel_sp
-        {
-            get
-            {
+        public int panel_sp {
+            get {
                 return this.psp;
             }
-            set
-            {
+            set {
                 this.psp = value;
             }
         }
 
-        public int reward_money
-        {
-            get
-            {
+        public int reward_money {
+            get {
                 return this.r;
             }
-            set
-            {
+            set {
                 this.r = value;
             }
         }
 
-        public int reward_exp
-        {
-            get
-            {
+        public int reward_exp {
+            get {
                 return this.re;
             }
-            set
-            {
+            set {
                 this.re = value;
             }
         }
 
-        public int reward_soul
-        {
-            get
-            {
+        public int reward_soul {
+            get {
                 return this.rs;
             }
-            set
-            {
+            set {
                 this.rs = value;
             }
         }
 
-        public int reward_money_limit
-        {
-            get
-            {
+        public int reward_money_limit {
+            get {
                 return this.rm;
             }
-            set
-            {
+            set {
                 this.rm = value;
             }
         }
 
-        public int reward_exp_limit
-        {
-            get
-            {
+        public int reward_exp_limit {
+            get {
                 return this.rl;
             }
-            set
-            {
+            set {
                 this.rl = value;
             }
         }
 
-        public int enemy_table_id
-        {
-            get
-            {
+        public int enemy_table_id {
+            get {
                 return this.ei;
             }
-            set
-            {
+            set {
                 this.ei = value;
             }
         }
 
-        public string text
-        {
-            get
-            {
+        public string text {
+            get {
                 return this.t;
             }
-            set
-            {
+            set {
                 this.t = value;
             }
         }
 
-        public int present_type
-        {
-            get
-            {
+        public int present_type {
+            get {
                 return this.pt;
             }
-            set
-            {
+            set {
                 this.pt = value;
             }
         }
 
-        public int present_param
-        {
-            get
-            {
+        public int present_param {
+            get {
                 return this.pp;
             }
-            set
-            {
+            set {
                 this.pp = value;
             }
         }
 
-        public int present_param_1
-        {
-            get
-            {
+        public int present_param_1 {
+            get {
                 return this.pp1;
             }
-            set
-            {
+            set {
                 this.pp1 = value;
             }
         }
 
-        public int challenge_id_0
-        {
-            get
-            {
+        public int challenge_id_0 {
+            get {
                 return this.c0;
             }
-            set
-            {
+            set {
                 this.c0 = value;
             }
         }
 
-        public int challenge_id_1
-        {
-            get
-            {
+        public int challenge_id_1 {
+            get {
                 return this.c1;
             }
-            set
-            {
+            set {
                 this.c1 = value;
             }
         }
 
-        public int challenge_id_2
-        {
-            get
-            {
+        public int challenge_id_2 {
+            get {
                 return this.c2;
             }
-            set
-            {
+            set {
                 this.c2 = value;
             }
         }
 
-        public int tflg_cmd_0
-        {
-            get
-            {
+        public int tflg_cmd_0 {
+            get {
                 return this.t0;
             }
-            set
-            {
+            set {
                 this.t0 = value;
             }
         }
 
-        public int tflg_idx_0
-        {
-            get
-            {
+        public int tflg_idx_0 {
+            get {
                 return this.ti0;
             }
-            set
-            {
+            set {
                 this.ti0 = value;
             }
         }
 
-        public int tflg_cmd_1
-        {
-            get
-            {
+        public int tflg_cmd_1 {
+            get {
                 return this.t1;
             }
-            set
-            {
+            set {
                 this.t1 = value;
             }
         }
 
-        public int tflg_idx_1
-        {
-            get
-            {
+        public int tflg_idx_1 {
+            get {
                 return this.ti1;
             }
-            set
-            {
+            set {
                 this.ti1 = value;
             }
         }
 
-        public int sp_guide_id
-        {
-            get
-            {
+        public int sp_guide_id {
+            get {
                 return this.si;
             }
-            set
-            {
+            set {
                 this.si = value;
             }
         }
 
-        public string banner
-        {
-            get
-            {
+        public string banner {
+            get {
                 return this.ba;
             }
-            set
-            {
+            set {
                 this.ba = value;
             }
         }
 
-        public int bgm_f
-        {
-            get
-            {
+        public int bgm_f {
+            get {
                 return this.bf;
             }
-            set
-            {
+            set {
                 this.bf = value;
             }
         }
 
-        public int bgm_b
-        {
-            get
-            {
+        public int bgm_b {
+            get {
                 return this.bb;
             }
-            set
-            {
+            set {
                 this.bb = value;
             }
         }
 
-        public int h_id
-        {
-            get
-            {
+        public int h_id {
+            get {
                 return this.hi;
             }
-            set
-            {
+            set {
                 this.hi = value;
             }
         }
 
-        public int h_lv
-        {
-            get
-            {
+        public int h_lv {
+            get {
                 return this.hl;
             }
-            set
-            {
+            set {
                 this.hl = value;
             }
         }
 
-        public int event_cutin_id
-        {
-            get
-            {
+        public int event_cutin_id {
+            get {
                 return this.eci;
             }
-            set
-            {
+            set {
                 this.eci = value;
             }
         }
 
-        public int event_effect_flag
-        {
-            get
-            {
+        public int event_effect_flag {
+            get {
                 return this.eef;
             }
-            set
-            {
+            set {
                 this.eef = value;
+            }
+        }
+
+        public int gim_distance_0 {
+            get {
+                return this.gd0;
+            }
+            set {
+                this.gd0 = value;
+            }
+        }
+
+        public int gim_effect_0 {
+            get {
+                return this.ge0;
+            }
+            set {
+                this.ge0 = value;
+            }
+        }
+
+        public int gim_logig_0 {
+            get {
+                return this.gl0;
+            }
+            set {
+                this.gl0 = value;
+            }
+        }
+
+        public int gim_damage_0 {
+            get {
+                return this.gda0;
+            }
+            set {
+                this.gda0 = value;
+            }
+        }
+
+        public int gim_distance_1 {
+            get {
+                return this.gd1;
+            }
+            set {
+                this.gd1 = value;
+            }
+        }
+
+        public int gim_effect_1 {
+            get {
+                return this.ge1;
+            }
+            set {
+                this.ge1 = value;
+            }
+        }
+
+        public int gim_logig_1 {
+            get {
+                return this.gl1;
+            }
+            set {
+                this.gl1 = value;
+            }
+        }
+
+        public int gim_damage_1 {
+            get {
+                return this.gda1;
+            }
+            set {
+                this.gda1 = value;
+            }
+        }
+
+        public int gim_distance_2 {
+            get {
+                return this.gd2;
+            }
+            set {
+                this.gd2 = value;
+            }
+        }
+
+        public int gim_effect_2 {
+            get {
+                return this.ge2;
+            }
+            set {
+                this.ge2 = value;
+            }
+        }
+
+        public int gim_logig_2 {
+            get {
+                return this.gl2;
+            }
+            set {
+                this.gl2 = value;
+            }
+        }
+
+        public int gim_damage_2 {
+            get {
+                return this.gda2;
+            }
+            set {
+                this.gda2 = value;
             }
         }
 

@@ -129,5 +129,19 @@ namespace RTDDE.Provider.MasterData
         public int death_lv_max;
         public int death_rate;
         public int death_drop_id;
+        public int boss01_id;
+        public int boss01_set_id;
+        public int boss01_lv_min;
+        public int boss01_lv_max;
+        public int boss01_rate;
+        public int boss01_drop_id;
+        public int boss01_bgm_id;
+        public int boss02_id;
+        public int boss02_set_id;
+        public int boss02_lv_min;
+        public int boss02_lv_max;
+        public int boss02_rate;
+        public int boss02_drop_id;
+        public int boss02_bgm_id;
     }
 }

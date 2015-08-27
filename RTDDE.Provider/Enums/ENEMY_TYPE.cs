@@ -56,5 +56,8 @@ namespace RTDDE.Provider.Enums
         GOLD = 49,
         NOTHING = 50,
         RAGE_BOSS = 51,
+        EVENT_EXP_N = 52,
+        EVENT_EXP_SP = 53,
+        MAX = 54,
     }
 }

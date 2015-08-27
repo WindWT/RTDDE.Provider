@@ -82,6 +82,7 @@ namespace RTDDE.Provider.Enums
         CHAOS_FLA,
         CHAOS_STK,
         CHAOS_TSW,
+        POK_DCA,
         PLAYER_END,
         MS01SLA,
         MS01SQU,
