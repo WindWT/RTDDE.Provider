@@ -92,18 +92,18 @@ namespace RTDDE.Provider.MasterData
         public int hl;
         public int eci;
         public int eef;
-        private int gd0;
-        private int ge0;
-        private int gl0;
-        private int gda0;
-        private int gd1;
-        private int ge1;
-        private int gl1;
-        private int gda1;
-        private int gd2;
-        private int ge2;
-        private int gl2;
-        private int gda2;
+        public int gd0;
+        public int ge0;
+        public int gl0;
+        public int gda0;
+        public int gd1;
+        public int ge1;
+        public int gl1;
+        public int gda1;
+        public int gd2;
+        public int ge2;
+        public int gl2;
+        public int gda2;
 
         public int id {
             get {
