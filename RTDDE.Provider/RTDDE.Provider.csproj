@@ -73,6 +73,9 @@
     <Compile Include="Enums\UnitAttribute.cs" />
     <Compile Include="JSON.cs" />
     <Compile Include="MapData.cs" />
+    <Compile Include="MasterData\ActionData.cs" />
+    <Compile Include="MasterData\LogicData.cs" />
+    <Compile Include="MasterData\LogicGroupData.cs" />
     <Compile Include="MasterData\SpiritsPositionMaster.cs" />
     <Compile Include="MasterData\SpiritsActionMaster.cs" />
     <Compile Include="MasterData\SpiritsCollectionMaster.cs" />

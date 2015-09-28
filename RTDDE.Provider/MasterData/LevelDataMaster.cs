@@ -25,5 +25,7 @@ namespace RTDDE.Provider.MasterData
         [DALColumn(Ignore = true)]
         public EventCutinMaster[] event_cutin_master;
         public uint clear_talk_id;
+        [DALColumn(Ignore = true)]
+        public LogicGroupData[] logic_group_data;
     }
 }

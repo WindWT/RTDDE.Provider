@@ -92,6 +92,7 @@ namespace RTDDE.Provider.MasterData
         public int hl;
         public int eci;
         public int eef;
+        public int fc;
         public int gd0;
         public int ge0;
         public int gl0;
@@ -831,6 +832,15 @@ namespace RTDDE.Provider.MasterData
             }
             set {
                 this.eef = value;
+            }
+        }
+
+        public int field_crash_id {
+            get {
+                return this.fc;
+            }
+            set {
+                this.fc = value;
             }
         }
 

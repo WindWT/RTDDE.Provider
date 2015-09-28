@@ -13,5 +13,6 @@ namespace RTDDE.Provider.MasterData
         public ushort level;
         public uint pos_x;
         public uint pos_y;
+        public uint pos_id;
     }
 }

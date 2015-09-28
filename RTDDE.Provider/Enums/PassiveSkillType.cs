@@ -134,6 +134,7 @@ namespace RTDDE.Provider.Enums
         ENHANCE_USE_PANEL_LIMIT = 126,
         PANEL_RATE_CHANGE = 127,
         PANEL_OVER_HEAL = 128,
-        MAX = 129,
+        ELEMENT_MIX_WEAK_ATTACK = 129,
+        MAX = 130,
     }
 }

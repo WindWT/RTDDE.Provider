@@ -20,6 +20,8 @@ namespace RTDDE.Provider.Enums
         GUARD_COMBO_MORE,
         POISON_DOWN_SOUL,
         SHUFFLE_DOWN_SOUL,
+        SEAL_SKILL,
+        PANEL_DIFFER_COUNTER,
         MAX,
     }
 }

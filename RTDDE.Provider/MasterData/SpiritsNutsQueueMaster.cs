@@ -11,5 +11,6 @@ namespace RTDDE.Provider.MasterData
     {
         public uint id;
         public uint nuts_id;
+        public ushort num;
     }
 }

@@ -95,5 +95,6 @@ namespace RTDDE.Provider.Enums
         ChangePanelMajorClass = 86,
         EnhancePartyEnemyAtk = 87,
         VlitinaCanon = 88,
+        UnlimitedLeader = 89,
     }
 }
