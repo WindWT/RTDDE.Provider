@@ -5,6 +5,7 @@ using System.Data;
 using System.Text;
 using System.Data.SQLite;
 using System.Reflection;
+using Newtonsoft.Json;
 using RTDDE.Provider.Enums;
 
 namespace RTDDE.Provider
@@ -103,38 +104,44 @@ namespace RTDDE.Provider
             PropertyInfo[] properties = typeof(T).GetProperties();
 
             T result = new T();
-            using (SQLiteConnection connection = new SQLiteConnection(_connectionString))
-            {
+            using (SQLiteConnection connection = new SQLiteConnection(_connectionString)) {
                 connection.Open();
                 SQLiteCommand cmd = new SQLiteCommand(sql, connection);
-                using (SQLiteDataReader reader = cmd.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
+                using (SQLiteDataReader reader = cmd.ExecuteReader()) {
+                    if (reader.Read()) {
                         string[] names = GetColumnNames(reader);
-                        for (int i = 0; i < names.Length; i++)
-                        {
+                        for (int i = 0; i < names.Length; i++) {
                             string name = names[i];
                             object value = reader.GetValue(i);
-                            if (typeof(T).IsUseProperty())
-                            {
+                            if (typeof(T).IsUseProperty()) {
                                 PropertyInfo property = properties.First(o => o.Name == name);
+                                object[] attrs = property.GetCustomAttributes(typeof(DALColumnAttribute), true);
+                                if (attrs.Length > 0) {
+                                    DALColumnAttribute attr = attrs[0] as DALColumnAttribute;
+                                    if (attr != null && attr.SaveAsJson == true) {
+                                        value = JsonConvert.DeserializeObject(value.ToString());
+                                    }
+                                }
                                 property.SetValue(result, Convert.ChangeType(value, property.PropertyType), null);
                             }
-                            else
-                            {
+                            else {
                                 FieldInfo field = fields.First(o => o.Name == name);
+                                object[] attrs = field.GetCustomAttributes(typeof(DALColumnAttribute), true);
+                                if (attrs.Length > 0) {
+                                    DALColumnAttribute attr = attrs[0] as DALColumnAttribute;
+                                    if (attr != null && attr.SaveAsJson == true) {
+                                        value = JsonConvert.DeserializeObject(value.ToString());
+                                    }
+                                }
                                 field.SetValue(result, Convert.ChangeType(value, field.FieldType));
                             }
                         }
                     }
-                    else
-                    {
+                    else {
                         result = null;
                     }
                 }
             }
-
             return result;
         }
 
@@ -158,14 +165,26 @@ namespace RTDDE.Provider
                         {
                             string name = names[i];
                             object value = reader.GetValue(i);
-                            if (typeof(T).IsUseProperty())
-                            {
+                            if (typeof(T).IsUseProperty()) {
                                 PropertyInfo property = properties.First(o => o.Name == name);
+                                object[] attrs = property.GetCustomAttributes(typeof(DALColumnAttribute), true);
+                                if (attrs.Length > 0) {
+                                    DALColumnAttribute attr = attrs[0] as DALColumnAttribute;
+                                    if (attr != null && attr.SaveAsJson == true) {
+                                        value = JsonConvert.DeserializeObject(value.ToString());
+                                    }
+                                }
                                 property.SetValue(obj, Convert.ChangeType(value, property.PropertyType), null);
                             }
-                            else
-                            {
+                            else {
                                 FieldInfo field = fields.First(o => o.Name == name);
+                                object[] attrs = field.GetCustomAttributes(typeof(DALColumnAttribute), true);
+                                if (attrs.Length > 0) {
+                                    DALColumnAttribute attr = attrs[0] as DALColumnAttribute;
+                                    if (attr != null && attr.SaveAsJson == true) {
+                                        value = JsonConvert.DeserializeObject(value.ToString());
+                                    }
+                                }
                                 field.SetValue(obj, Convert.ChangeType(value, field.FieldType));
                             }
                         }
@@ -197,6 +216,7 @@ namespace RTDDE.Provider
 
             string tableName = Converter.Type2Enum(typeof(T)).ToString();
             string[] columnNames = GetColumnNames(typeof(T));
+            string[] jsonNames = GetColumnJsonNames(typeof(T));
             string pkName = GetColumnPKName(typeof(T));
 
             using (SQLiteConnection connection = new SQLiteConnection(_connectionString))
@@ -231,6 +251,9 @@ namespace RTDDE.Provider
                     {
                         string columnName = name;
                         object columnValue = typeof(T).IsUseProperty() ? properties.First(o => o.Name == name).GetValue(obj, null) : fields.First(o => o.Name == name).GetValue(obj);
+                        if (Array.Exists(jsonNames, o => o == columnName)) {
+                            columnValue = JsonConvert.SerializeObject(columnValue);
+                        }
                         sqlColumnName.Append(columnName);
                         sqlColumnName.Append(",");
                         sqlColumnValue.Append("@" + columnName);
@@ -259,6 +282,7 @@ namespace RTDDE.Provider
 
             string tableName = Converter.Type2Enum(typeof(T)).ToString();
             string[] columnNames = GetColumnNames(typeof(T));
+            string[] jsonNames = GetColumnJsonNames(typeof(T));
             string pkName = GetColumnPKName(typeof(T));
             bool isUseProperty = typeof(T).IsUseProperty();
 
@@ -296,6 +320,9 @@ namespace RTDDE.Provider
                         {
                             string columnName = name;
                             object columnValue = isUseProperty ? properties.First(o => o.Name == name).GetValue(obj, null) : fields.First(o => o.Name == name).GetValue(obj);
+                            if (Array.Exists(jsonNames, o => o == columnName)) {
+                                columnValue = JsonConvert.SerializeObject(columnValue);
+                            }
                             sqlColumnName.Append(columnName);
                             sqlColumnName.Append(",");
                             sqlColumnValue.Append("@" + columnName);
@@ -433,6 +460,43 @@ namespace RTDDE.Provider
             }
             return name;
         }
+
+        /// <summary>
+        /// 从实体中获取以JSON存储数据的列名
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        private static string[] GetColumnJsonNames(Type type) {
+            FieldInfo[] fields = type.GetFields();
+            PropertyInfo[] properties = type.GetProperties();
+
+            List<string> names = new List<string>();
+            if (type.IsUseProperty()) {
+                foreach (PropertyInfo property in properties) {
+                    object[] attrs = property.GetCustomAttributes(typeof(DALColumnAttribute), true);
+                    if (attrs.Length <= 0) {
+                        continue;
+                    }
+                    DALColumnAttribute attr = attrs[0] as DALColumnAttribute;
+                    if (attr != null && attr.SaveAsJson == true) {
+                        names.Add(property.Name);
+                    }
+                }
+            }
+            else {
+                foreach (FieldInfo field in fields) {
+                    object[] attrs = field.GetCustomAttributes(typeof(DALColumnAttribute), true);
+                    if (attrs.Length <= 0) {
+                        continue;
+                    }
+                    DALColumnAttribute attr = attrs[0] as DALColumnAttribute;
+                    if (attr != null && attr.SaveAsJson == true) {
+                        names.Add(field.Name);
+                    }
+                }
+            }
+            return names.ToArray();
+        }
         private static bool IsUseProperty(this Type type)
         {
             bool result = false;
@@ -457,5 +521,6 @@ namespace RTDDE.Provider
     {
         public bool PrimaryKey { get; set; }
         public bool Ignore { get; set; }
+        public bool SaveAsJson { get; set; }
     }
 }

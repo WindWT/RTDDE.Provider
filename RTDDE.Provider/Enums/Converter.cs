@@ -54,6 +54,7 @@ namespace RTDDE.Provider.Enums
             {MASTERDB.SPIRITS_TREE_CHIBI_POS,typeof(SpiritsPositionMaster)},
             {MASTERDB.SPIRITS_TREE_PARAM,typeof(SpiritsParamMaster)},
             {MASTERDB.SPIRITS_TREE_NUTS_QUEUE,typeof(SpiritsNutsQueueMaster)},
+            {MASTERDB.LOGIC_GROUP_DATA,typeof(LogicGroupData)},
         };
 
         public static MASTERDB Type2Enum(Type type)
