@@ -119,7 +119,7 @@ namespace RTDDE.Provider
                                 if (attrs.Length > 0) {
                                     DALColumnAttribute attr = attrs[0] as DALColumnAttribute;
                                     if (attr != null && attr.SaveAsJson == true) {
-                                        value = JsonConvert.DeserializeObject(value.ToString());
+                                        value = JsonConvert.DeserializeObject(value.ToString(), property.PropertyType);
                                     }
                                 }
                                 property.SetValue(result, Convert.ChangeType(value, property.PropertyType), null);
@@ -130,7 +130,7 @@ namespace RTDDE.Provider
                                 if (attrs.Length > 0) {
                                     DALColumnAttribute attr = attrs[0] as DALColumnAttribute;
                                     if (attr != null && attr.SaveAsJson == true) {
-                                        value = JsonConvert.DeserializeObject(value.ToString());
+                                        value = JsonConvert.DeserializeObject(value.ToString(), field.FieldType);
                                     }
                                 }
                                 field.SetValue(result, Convert.ChangeType(value, field.FieldType));
@@ -171,7 +171,7 @@ namespace RTDDE.Provider
                                 if (attrs.Length > 0) {
                                     DALColumnAttribute attr = attrs[0] as DALColumnAttribute;
                                     if (attr != null && attr.SaveAsJson == true) {
-                                        value = JsonConvert.DeserializeObject(value.ToString());
+                                        value = JsonConvert.DeserializeObject(value.ToString(), property.PropertyType);
                                     }
                                 }
                                 property.SetValue(obj, Convert.ChangeType(value, property.PropertyType), null);
@@ -182,7 +182,7 @@ namespace RTDDE.Provider
                                 if (attrs.Length > 0) {
                                     DALColumnAttribute attr = attrs[0] as DALColumnAttribute;
                                     if (attr != null && attr.SaveAsJson == true) {
-                                        value = JsonConvert.DeserializeObject(value.ToString());
+                                        value = JsonConvert.DeserializeObject(value.ToString(), field.FieldType);
                                     }
                                 }
                                 field.SetValue(obj, Convert.ChangeType(value, field.FieldType));
