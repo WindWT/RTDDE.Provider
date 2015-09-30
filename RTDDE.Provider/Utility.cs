@@ -367,6 +367,9 @@ namespace RTDDE.Provider
         {
             return ((AttackPattern)type).ToString();
         }
+        public static string ParseTriggerType(int type) {
+            return ((eTriggerType)type).ToString();
+        }
         public static string ParseMessageName(int type)
         {
             return ((Message_Name)type).ToString();

@@ -63,6 +63,7 @@
     <Compile Include="Enums\AssignID.cs" />
     <Compile Include="Enums\AttackPattern.cs" />
     <Compile Include="Enums\ECHALLENGE_TYPE.cs" />
+    <Compile Include="Enums\eTriggerType.cs" />
     <Compile Include="Enums\E_QUEST_KIND.cs" />
     <Compile Include="Enums\ENEMY_TYPE.cs" />
     <Compile Include="Enums\Converter.cs" />
