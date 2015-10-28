@@ -207,6 +207,9 @@ namespace RTDDE.Provider
         {
             string tableName = Converter.Type2Enum(typeof(T)).ToString();
             string orderString = string.Join(",", orderFieldStrings);
+            if (string.IsNullOrWhiteSpace(orderString)) {
+                return ToList<T>(string.Format("SELECT * FROM {0}", tableName));
+            }
             return ToList<T>(string.Format("SELECT * FROM {0} ORDER BY {1}", tableName, orderString));
         }
         public static void FromSingle<T>(T obj) where T : class,new()
