@@ -310,7 +310,13 @@ namespace RTDDE.Provider
             new EnemyEffectAssign(116, "ef_atk_spear_06", null),
             new EnemyEffectAssign(323, "ef_atk_magic_01", null),
             new EnemyEffectAssign(16, "ef_atk_blade_03", null),
-            new EnemyEffectAssign(221, "ef_atk_arrow_10", null)
+            new EnemyEffectAssign(221, "ef_atk_arrow_10", null),
+            new EnemyEffectAssign(117, "ef_atk_spear_11", null),
+            new EnemyEffectAssign(222, "ef_atk_arrow_11", null),
+            new EnemyEffectAssign(324, "ef_atk_magic_08", null),
+            new EnemyEffectAssign(118, "ef_atk_blade_09", null),
+            new EnemyEffectAssign(223, "ef_atk_blade_09", null),
+            new EnemyEffectAssign(325, "ef_atk_blade_09", null)
         };
         #endregion
         public static AssignID ParseUnitKind(int kind)

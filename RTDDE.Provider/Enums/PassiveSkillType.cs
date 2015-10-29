@@ -135,6 +135,7 @@ namespace RTDDE.Provider.Enums
         PANEL_RATE_CHANGE = 127,
         PANEL_OVER_HEAL = 128,
         ELEMENT_MIX_WEAK_ATTACK = 129,
-        MAX = 130,
+        ELEMENT_MIX_CNTUP_ATTACK = 130,
+        MAX = 131,
     }
 }
