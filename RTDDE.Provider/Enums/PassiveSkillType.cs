@@ -136,6 +136,9 @@ namespace RTDDE.Provider.Enums
         PANEL_OVER_HEAL = 128,
         ELEMENT_MIX_WEAK_ATTACK = 129,
         ELEMENT_MIX_CNTUP_ATTACK = 130,
-        MAX = 131,
+        DRAGON_KLILLER_PANEL = 131,
+        CONVERT_LIFE_HEAL_TO_ATK = 132,
+        AUTO_BARRIER = 133,
+        MAX = 134,
     }
 }
