@@ -96,5 +96,7 @@ namespace RTDDE.Provider.Enums
         EnhancePartyEnemyAtk = 87,
         VlitinaCanon = 88,
         UnlimitedLeader = 89,
+        REFLECTION_BURST = 90,
+        MAX = 91,
     }
 }

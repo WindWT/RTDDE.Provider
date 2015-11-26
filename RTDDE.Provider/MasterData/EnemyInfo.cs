@@ -20,5 +20,7 @@ namespace RTDDE.Provider.MasterData
         public int add_attribute_exp;
         public int attribute;
         public int unit_exp;
+        public int unit_attack;
+        public int unit_life;
     }
 }
