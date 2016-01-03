@@ -464,10 +464,11 @@ namespace RTDDE.Provider
             //return String.Format("<span style='color:#{0}'>{1}</span>", color, m.Groups[2].Value);
             return m.Groups[2].Value;
         }
-        public static int RealCalc(int baseAttr, int up, int lv)
-        {
-            return (int)Math.Round(baseAttr * ((lv - 1) * (up * 0.01) + 1));
+
+        public static int RealCalc(int baseAttr, int up, int lv) {
+            return (int) ((float) baseAttr * (float) ((double) (lv - 1) * ((double) up * 0.00999999977648258) + 1.0));
         }
+
         public static string ParseBgmName(int no)
         {
             string realBgmName = "";
