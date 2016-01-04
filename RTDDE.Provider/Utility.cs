@@ -190,14 +190,14 @@ namespace RTDDE.Provider
                 default: return "未知" + type.ToString();
             }
         }
-        public static string ParseAttributetype(int attributetype)
+        public static string ParseAttributeToString(int attribute)
         {
-            return attributetype <= 5 ? ParseRealAttributetype(attributetype).ToString() : attributetype.ToString();
+            return attribute <= 5 ? ParseAttribute(attribute).ToString() : attribute.ToString();
         }
 
-        private static UnitAttribute ParseRealAttributetype(int attributetype)
+        public static UnitAttribute ParseAttribute(int attribute)
         {
-            switch (attributetype) {
+            switch (attribute) {
                 case 1:
                     return UnitAttribute.NONE;
                 case 2:
