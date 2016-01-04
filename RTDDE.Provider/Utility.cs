@@ -190,9 +190,9 @@ namespace RTDDE.Provider
                 default: return "未知" + type.ToString();
             }
         }
-        public static string ParseAttributeToString(int attribute)
-        {
-            return attribute <= 5 ? ParseAttribute(attribute).ToString() : attribute.ToString();
+
+        public static string ParseAttributeToString(int attribute) {
+            return attribute >= 1 && attribute <= 5 ? ParseAttribute(attribute).ToString() : attribute.ToString();
         }
 
         public static UnitAttribute ParseAttribute(int attribute)
@@ -209,7 +209,7 @@ namespace RTDDE.Provider
                 case 5:
                     return UnitAttribute.DARK;
                 default:
-                    return UnitAttribute.NONE;
+                    return UnitAttribute.ALL;
             }
         }
         public static string ParseStyletype(int styletype)
