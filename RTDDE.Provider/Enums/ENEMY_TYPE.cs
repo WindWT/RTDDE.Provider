@@ -58,6 +58,7 @@ namespace RTDDE.Provider.Enums
         RAGE_BOSS = 51,
         EVENT_EXP_N = 52,
         EVENT_EXP_SP = 53,
-        MAX = 54,
+        FOOTPRINT_EXP_BALL = 54,
+        MAX = 55,
     }
 }

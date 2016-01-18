@@ -29,5 +29,6 @@ namespace RTDDE.Provider.MasterData
         public int lock_value;
         public string lock_dialog_msg;
         public uint move_field_id;
+        public int difficulty;
     }
 }

@@ -55,6 +55,9 @@ namespace RTDDE.Provider.Enums
             {MASTERDB.SPIRITS_TREE_PARAM,typeof(SpiritsParamMaster)},
             {MASTERDB.SPIRITS_TREE_NUTS_QUEUE,typeof(SpiritsNutsQueueMaster)},
             {MASTERDB.LOGIC_GROUP_DATA,typeof(LogicGroupData)},
+            {MASTERDB.MULTI_QUEST_MASTER,typeof(MultiQuestMaster)},
+            {MASTERDB.MULTI_CONTRIBUTION_MASTER,typeof(MultiContributionMaster)},
+            {MASTERDB.MULTI_REWARD_MASTER,typeof(MultiRewardMaster)},
         };
 
         public static MASTERDB Type2Enum(Type type)

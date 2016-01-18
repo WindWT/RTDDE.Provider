@@ -373,6 +373,9 @@ namespace RTDDE.Provider
         {
             return ((AttackPattern)type).ToString();
         }
+        public static string ParseMultiConditionType(int type) {
+            return ((eCondition)type).ToString();
+        }
         public static string ParseTriggerType(int type) {
             return ((eTriggerType)type).ToString();
         }
@@ -539,6 +542,21 @@ namespace RTDDE.Provider
                     break;
             }
             return flag;
+        }
+
+        public bool IsExpBall(int num) {
+            switch (num) {
+                case 52:
+                case 53:
+                case 54:
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        public bool IsFootPrintExpBall(int num) {
+            return num == 54;
         }
     }
 }

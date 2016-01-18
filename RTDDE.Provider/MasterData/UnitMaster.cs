@@ -39,6 +39,7 @@ namespace RTDDE.Provider.MasterData
         public int co;
         public int s;
         public int ap;
+        public int trv;
         public int b;
         public int y;
         public int pr;
@@ -55,6 +56,7 @@ namespace RTDDE.Provider.MasterData
         public string sc;
         public string sc6;
         public string ast;
+        public string mbt;
         public string icon_name;
         //public UIAtlas cutin_atlas;
         public string cutin_name1;
@@ -609,6 +611,30 @@ namespace RTDDE.Provider.MasterData
             set
             {
                 this.ast = value;
+            }
+        }
+
+        public string multi_b_text
+        {
+            get
+            {
+                return this.mbt;
+            }
+            set
+            {
+                this.mbt = value;
+            }
+        }
+
+        public int ticket_rec_val
+        {
+            get
+            {
+                return this.trv;
+            }
+            set
+            {
+                this.trv = value;
             }
         }
     }

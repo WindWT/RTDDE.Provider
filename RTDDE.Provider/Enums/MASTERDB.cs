@@ -53,6 +53,9 @@ namespace RTDDE.Provider.Enums
         SPIRITS_TREE_CHIBI_POS = 156,
         SPIRITS_TREE_PARAM = 158,
         SPIRITS_TREE_NUTS_QUEUE = 159,
+        MULTI_QUEST_MASTER = 170,
+        MULTI_CONTRIBUTION_MASTER = 171,
+        MULTI_REWARD_MASTER = 172,
         LEVEL_DATA_MASTER = 10000, //not exist after 1.8?
         LOGIC_GROUP_DATA = 10001, //only for placeholder
     }

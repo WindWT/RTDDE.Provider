@@ -97,6 +97,7 @@ namespace RTDDE.Provider.Enums
         VlitinaCanon = 88,
         UnlimitedLeader = 89,
         REFLECTION_BURST = 90,
-        MAX = 91,
+        ATTACK_COUNT_UP_HART = 91,
+        MAX = 92,
     }
 }

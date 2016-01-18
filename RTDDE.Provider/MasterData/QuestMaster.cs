@@ -105,6 +105,7 @@ namespace RTDDE.Provider.MasterData
         public int ge2;
         public int gl2;
         public int gda2;
+        public uint mq;
 
         public int id {
             get {
@@ -949,6 +950,18 @@ namespace RTDDE.Provider.MasterData
             }
             set {
                 this.gda2 = value;
+            }
+        }
+
+        public uint multi_quest_id
+        {
+            get
+            {
+                return this.mq;
+            }
+            set
+            {
+                this.mq = value;
             }
         }
 
