@@ -63,6 +63,7 @@
     <Compile Include="Enums\AssignID.cs" />
     <Compile Include="Enums\AttackPattern.cs" />
     <Compile Include="Enums\ECHALLENGE_TYPE.cs" />
+    <Compile Include="Enums\eCondition.cs" />
     <Compile Include="Enums\eTriggerType.cs" />
     <Compile Include="Enums\E_QUEST_KIND.cs" />
     <Compile Include="Enums\ENEMY_TYPE.cs" />
@@ -77,6 +78,8 @@
     <Compile Include="MasterData\ActionData.cs" />
     <Compile Include="MasterData\LogicData.cs" />
     <Compile Include="MasterData\LogicGroupData.cs" />
+    <Compile Include="MasterData\MultiContributionMaster.cs" />
+    <Compile Include="MasterData\MultiRewardMaster.cs" />
     <Compile Include="MasterData\SpiritsPositionMaster.cs" />
     <Compile Include="MasterData\SpiritsActionMaster.cs" />
     <Compile Include="MasterData\SpiritsCollectionMaster.cs" />
@@ -123,6 +126,7 @@
     <Compile Include="MasterData\SpEventMaster.cs" />
     <Compile Include="MasterData\UnitMaster.cs" />
     <Compile Include="MasterData\UnitTalkMaster.cs" />
+    <Compile Include="MasterData\MultiQuestMaster.cs" />
     <Compile Include="MasterData\UserRankMaster.cs" />
     <Compile Include="Enums\MASTERDB.cs" />
     <Compile Include="MasterData\Wrapper\QuestChallengeRewardState.cs" />
