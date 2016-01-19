@@ -42,18 +42,44 @@ namespace RTDDE.Provider
         //    }
         //    return list;
         //}
+        private static string questFileNameAndroid = "GAME.xml";
+        private static string dropFileNameAndroid = "com.prime31.UnityPlayerNativeActivity.xml";
+        private static string questFileNameiOS = "GAME";
+        private static string dropFileNameiOS = "jp.co.acquire.RTD.plist";
         private void InitMapData(Stream stream)
         {
             var msg = MessagePackSerializer.Get<LevelDataMaster>();
             LDM = msg.Unpack(stream);
         }
+
+        /// <summary>
+        /// Get Enemy Info, don't check levelId from GAME
+        /// </summary>
+        /// <returns>EnemyInfo</returns>
+        public static List<EnemyInfo> GetEnemyInfo() {
+            List<EnemyInfo> ei = new List<EnemyInfo>();
+            if (File.Exists(dropFileNameAndroid)) {
+                using (StreamReader sr = new StreamReader(dropFileNameAndroid)) {
+                    ei = ParseEnemyInfoAndroid(sr.ReadToEnd());
+                }
+
+            }
+            else if (File.Exists(dropFileNameiOS)) {
+                using (
+                    StreamReader srDrop = new StreamReader(dropFileNameiOS)) {
+                    ei = ParseEnemyInfoiOS(srDrop.BaseStream);
+                }
+            }
+            return ei;
+        }
+
+        /// <summary>
+        /// Get Enemy Info, DO check levelId from GAME
+        /// </summary>
+        /// <returns>EnemyInfo</returns>
         public static List<EnemyInfo> GetEnemyInfo(string levelID)
         {
             List<EnemyInfo> ei = new List<EnemyInfo>();
-            string questFileNameAndroid = "GAME.xml";
-            string dropFileNameAndroid = "com.prime31.UnityPlayerNativeActivity.xml";
-            string questFileNameiOS = "GAME";
-            string dropFileNameiOS = "jp.co.acquire.RTD.plist";
             if (File.Exists(questFileNameAndroid) && File.Exists(dropFileNameAndroid))
             {
                 string questXml = string.Empty, dropXml = string.Empty;
@@ -77,6 +103,22 @@ namespace RTDDE.Provider
             }
             return ei;
         }
+
+        private static List<EnemyInfo> ParseEnemyInfoAndroid(string xmlEnemyInfoString) {
+            XmlDocument xmlEnemyInfo = new XmlDocument();
+            string jsonEnemyInfo = String.Empty;
+
+            xmlEnemyInfo.LoadXml(xmlEnemyInfoString);
+            foreach (XmlNode xmlNode in xmlEnemyInfo.GetElementsByTagName("string")) {
+                var attr = xmlNode.Attributes["name"];
+                if (attr != null && attr.Value == "QUEST_ENEMY_INFO") {
+                    jsonEnemyInfo = xmlNode.InnerText;
+                    break;
+                }
+            }
+            return JsonConvert.DeserializeObject<List<EnemyInfo>>(jsonEnemyInfo);
+        }
+
         private static List<EnemyInfo> ParseEnemyInfoAndroid(string questId, string xmlQuestString, string xmlEnemyInfoString)
         {
             XmlDocument xmlQuestInfo = new XmlDocument();
@@ -112,6 +154,13 @@ namespace RTDDE.Provider
             }
             return ei;
         }
+
+        private static List<EnemyInfo> ParseEnemyInfoiOS(Stream dropStream) {
+            var reader = new System.Runtime.Serialization.Plists.BinaryPlistReader();
+            IDictionary dictDrop = reader.ReadObject(dropStream);
+            return JsonConvert.DeserializeObject<List<EnemyInfo>>(dictDrop["QUEST_ENEMY_INFO"].ToString());
+        }
+
         private static List<EnemyInfo> ParseEnemyInfoiOS(string questId, Stream questStream, Stream dropStream)
         {
             var reader = new System.Runtime.Serialization.Plists.BinaryPlistReader();
