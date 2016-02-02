@@ -214,7 +214,7 @@ namespace RTDDE.Provider
         }
         public static string ParseStyletype(int styletype)
         {
-            return styletype == 0 ? "NONE" : ParseRealStyletype(styletype).ToString();
+            return styletype >= 1 && styletype <= 4 ? ParseRealStyletype(styletype).ToString() : styletype.ToString();
         }
 
         private static Class ParseRealStyletype(int styletype)
