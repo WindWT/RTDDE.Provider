@@ -30,6 +30,7 @@ namespace RTDDE.Provider.MasterData
         public int attack;
         public int defense;
         public int turn;
+        public short turn_wait_sec;
         public int ui;
         public short atk_ef_id;
         public uint logic_group_id;

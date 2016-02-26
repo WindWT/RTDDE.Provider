@@ -11,6 +11,8 @@
         ONE_ATTACK_COMBO = 12,
         TARGET_ENEMY_KILL = 20,
         ENEMY_KILL = 21,
+        TARGET_ENEMY_KILL_SHARE = 22,
+        ENEMY_KILL_SHARE = 23,
         NO_CONTINUE = 30,
         CLEAR_TIME_SAFE = 31,
         CLEAR_SOUL = 32,
