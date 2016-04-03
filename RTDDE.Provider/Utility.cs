@@ -6,43 +6,17 @@ using System.Data;
 using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
+using RTDDE.Provider.Util;
 
 namespace RTDDE.Provider
 {
-    public struct EnemyEffectAssign
-    {
-        public short m_EffectIndex;
-        public string m_MainAtkEffectName;
-        public string m_SubAtkEffectName;
-        public EnemyEffectAssign(short id, string mainName, string subName)
-        {
-            this.m_EffectIndex = id;
-            this.m_MainAtkEffectName = mainName;
-            this.m_SubAtkEffectName = subName;
-        }
-    }
-    public class OpenType
-    {
-        public string Type { get; set; }
-        public string Param { get; set; }
-        public int Group { get; set; }
-        public OpenType()
-        {
-            Type = "未知";
-            Param = string.Empty;
-        }
-        public OpenType(string type, string param, int group)
-        {
-            Type = type;
-            Param = param;
-            Group = group;
-        }
-    }
     public class Utility
     {
         public static bool UseLocalTime { get; set; }
-        public static OpenType ParseOpentype(int type, int param, int group)
-        {
+        static Utility() {
+            UseLocalTime = false;
+        }
+        public static OpenType ParseOpentype(int type, int param, int group) {
             OpenType result = new OpenType();
             result.Group = group;
             switch (type) {
@@ -167,8 +141,7 @@ namespace RTDDE.Provider
             }
             return result;
         }
-        public static string ParsePresentType(int type)
-        {
+        public static string ParsePresentType(int type) {
             switch (type) {
                 case 0: return "NONE";
                 case 1: return "COIN";
@@ -178,8 +151,7 @@ namespace RTDDE.Provider
                 default: return "未知" + type.ToString();
             }
         }
-        public static string ParseBonusType(int type)
-        {
+        public static string ParseBonusType(int type) {
             switch (type) {
                 case 0: return "NONE";
                 case 1: return "体力半减";
@@ -195,8 +167,7 @@ namespace RTDDE.Provider
             return attribute >= 1 && attribute <= 5 ? ParseAttribute(attribute).ToString() : attribute.ToString();
         }
 
-        public static UnitAttribute ParseAttribute(int attribute)
-        {
+        public static UnitAttribute ParseAttribute(int attribute) {
             switch (attribute) {
                 case 1:
                     return UnitAttribute.NONE;
@@ -212,13 +183,11 @@ namespace RTDDE.Provider
                     return UnitAttribute.ALL;
             }
         }
-        public static string ParseStyletype(int styletype)
-        {
+        public static string ParseStyletype(int styletype) {
             return styletype >= 1 && styletype <= 4 ? ParseRealStyletype(styletype).ToString() : styletype.ToString();
         }
 
-        private static Class ParseRealStyletype(int styletype)
-        {
+        private static Class ParseRealStyletype(int styletype) {
             switch (styletype) {
                 case 1:
                     return Class.KNIGHT;
@@ -319,8 +288,7 @@ namespace RTDDE.Provider
             new EnemyEffectAssign(325, "ef_atk_blade_09", null)
         };
         #endregion
-        public static AssignID ParseUnitKind(int kind)
-        {
+        public static AssignID ParseUnitKind(int kind) {
             AssignID assignId = AssignID.SWORD;
             int length = m_EffectList.Length;
             for (int index = 0; index < length; ++index) {
@@ -330,8 +298,7 @@ namespace RTDDE.Provider
             }
             return assignId;
         }
-        public static int ParseAssignID(AssignID category)
-        {
+        public static int ParseAssignID(AssignID category) {
             int num = 1;
             int index = (int)category;
             int length = m_EffectList.Length;
@@ -339,16 +306,13 @@ namespace RTDDE.Provider
                 num = (int)m_EffectList[index].m_EffectIndex;
             return num;
         }
-        public static string ParseQuestKind(int kind)
-        {
+        public static string ParseQuestKind(int kind) {
             return ((E_QUEST_KIND)kind).ToString();
         }
-        public static string ParseChallengeType(int type)
-        {
+        public static string ParseChallengeType(int type) {
             return ((ECHALLENGE_TYPE)type).ToString();
         }
-        public static string ParseZBTNKind(int kind)
-        {
+        public static string ParseZBTNKind(int kind) {
             switch (kind) {
                 case 0: return "NORMAL";
                 case 1: return "EVENT";
@@ -357,20 +321,16 @@ namespace RTDDE.Provider
                 default: return "UNKNOWN_" + kind.ToString();
             }
         }
-        public static string ParseSkillType<T>(T skillType)
-        {
+        public static string ParseSkillType<T>(T skillType) {
             return skillType.ToString();
         }
-        public static string ParseAccessoryType(int type)
-        {
+        public static string ParseAccessoryType(int type) {
             return ((AccessoryType)type).ToString();
         }
-        public static string ParseEnemyType(int type)
-        {
+        public static string ParseEnemyType(int type) {
             return ((ENEMY_TYPE)type).ToString();
         }
-        public static string ParseAttackPattern(int type)
-        {
+        public static string ParseAttackPattern(int type) {
             return ((AttackPattern)type).ToString();
         }
         public static string ParseMultiConditionType(int type) {
@@ -379,12 +339,10 @@ namespace RTDDE.Provider
         public static string ParseTriggerType(int type) {
             return ((eTriggerType)type).ToString();
         }
-        public static string ParseMessageName(int type)
-        {
+        public static string ParseMessageName(int type) {
             return ((Message_Name)type).ToString();
         }
-        private static DateTime ConvertTimeZone(DateTime dateTime, bool isUtc)
-        {
+        private static DateTime ConvertTimeZone(DateTime dateTime, bool isUtc) {
             TimeZoneInfo jpZone = TimeZoneInfo.FindSystemTimeZoneById("Tokyo Standard Time");
             if (isUtc) {
                 return UseLocalTime ? dateTime.ToLocalTime() : TimeZoneInfo.ConvertTime(dateTime, jpZone);
@@ -393,8 +351,7 @@ namespace RTDDE.Provider
                 return UseLocalTime ? TimeZoneInfo.ConvertTime(dateTime, jpZone, TimeZoneInfo.Local) : dateTime;
             }
         }
-        public static DateTime ParseRTDTime(int rtdTime, bool isUtc = false)
-        {
+        public static DateTime ParseRTDTime(int rtdTime, bool isUtc = false) {
             if (rtdTime == 0) {
                 return DateTime.MinValue;
             }
@@ -404,8 +361,7 @@ namespace RTDDE.Provider
             }
             return ConvertTimeZone(t, isUtc);
         }
-        public static DateTime ParseRTDDate(int rtdDate, bool isUtc = false)
-        {
+        public static DateTime ParseRTDDate(int rtdDate, bool isUtc = false) {
             if (rtdDate == 0) {
                 return DateTime.MinValue;
             }
@@ -420,8 +376,7 @@ namespace RTDDE.Provider
             return ConvertTimeZone(t, isUtc);
         }
 
-        public static int ToRTDDate(DateTime time, bool toUtcDate)
-        {
+        public static int ToRTDDate(DateTime time, bool toUtcDate) {
             DateTime utcTime = time.ToUniversalTime();
             TimeZoneInfo jpZone = TimeZoneInfo.FindSystemTimeZoneById("Tokyo Standard Time");
             if (toUtcDate == false) {
@@ -429,13 +384,11 @@ namespace RTDDE.Provider
             }
             return int.Parse(utcTime.ToString("yyyyMMddHH"));
         }
-        public static string ParseUnitName(int unitId)
-        {
+        public static string ParseUnitName(int unitId) {
             string sql = @"SELECT name FROM unit_master WHERE id={0}";
             return DAL.Get<string>(String.Format(sql, unitId));
         }
-        public static string ParseUnitGroupName(int unitUiId)
-        {
+        public static string ParseUnitGroupName(int unitUiId) {
             string sql = @"SELECT * FROM unit_master WHERE ui_id={0}";
             List<UnitMaster> unitMasters = DAL.ToList<UnitMaster>(String.Format(sql, unitUiId));
             StringBuilder sb = new StringBuilder();
@@ -448,32 +401,24 @@ namespace RTDDE.Provider
 
         private static readonly Regex RichTextRegex = new Regex(@"(\[[a-zA-Z0-9]{6}\])(.*?)(\[-\])", RegexOptions.Compiled);
 
-        static Utility()
-        {
-            UseLocalTime = false;
-        }
-
-        public static string ParseText(string text)
-        {
+        public static string ParseText(string text) {
             if (string.IsNullOrEmpty(text)) {
                 return String.Empty;
             }
             text = text.Replace(@"\n", "\n");
             return RichTextRegex.Replace(text, new MatchEvaluator(ParseTextEvaluator));
         }
-        public static string ParseTextEvaluator(Match m)
-        {
+        public static string ParseTextEvaluator(Match m) {
             string color = m.Groups[1].Value.Trim(new char[] { '[', ']' });
             //return String.Format("<span style='color:#{0}'>{1}</span>", color, m.Groups[2].Value);
             return m.Groups[2].Value;
         }
 
         public static int RealCalc(int baseAttr, int up, int lv) {
-            return (int) ((float) baseAttr * (float) ((double) (lv - 1) * ((double) up * 0.00999999977648258) + 1.0));
+            return (int)((float)baseAttr * (float)((double)(lv - 1) * ((double)up * 0.00999999977648258) + 1.0));
         }
 
-        public static string ParseBgmName(int no)
-        {
+        public static string ParseBgmName(int no) {
             string realBgmName = "";
             switch (no) {
                 case 0: realBgmName = "NO BGM"; break;
@@ -498,8 +443,7 @@ namespace RTDDE.Provider
             return realBgmName + $"({no.ToString("D2")})";
         }
 
-        public static bool IsUnitEnemy(int num)
-        {
+        public static bool IsUnitEnemy(int num) {
             switch (num) {
                 case 30:
                     return true;
@@ -527,8 +471,7 @@ namespace RTDDE.Provider
                     }
             }
         }
-        public static bool IsDvGObject(int num)
-        {
+        public static bool IsDvGObject(int num) {
             bool flag = false;
             switch (num) {
                 case 48:
