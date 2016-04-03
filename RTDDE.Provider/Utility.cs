@@ -4,8 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
+using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
+using MsgPack.Serialization;
 using RTDDE.Provider.Util;
 
 namespace RTDDE.Provider
@@ -13,8 +15,13 @@ namespace RTDDE.Provider
     public class Utility
     {
         public static bool UseLocalTime { get; set; }
+        public static readonly List<FontGlyph> FontGlyphs;
         static Utility() {
             UseLocalTime = false;
+            using (Stream stream = new MemoryStream(Properties.Resources.FontInfo)) {
+                var packer = MessagePackSerializer.Get<List<FontGlyph>>();
+                FontGlyphs = packer.Unpack(stream);
+            }
         }
         public static OpenType ParseOpentype(int type, int param, int group) {
             OpenType result = new OpenType();
