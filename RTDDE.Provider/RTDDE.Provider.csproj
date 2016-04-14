@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL.cs" />
+    <Compile Include="Enums\OpenType.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -143,7 +144,6 @@
     <Compile Include="Utility.cs" />
     <Compile Include="Enums\Class.cs" />
     <Compile Include="Util\FontGlyph.cs" />
-    <Compile Include="Util\OpenType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">

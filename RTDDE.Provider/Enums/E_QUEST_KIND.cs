@@ -15,6 +15,7 @@ namespace RTDDE.Provider.Enums
         SKY_BATTLE = 1021,
         HUGE_DRAGON = 1022,
         COLLABO_DVG = 2000,
-        MAX = 2001,
+        COLLABO_DSG = 2100,
+        MAX = 2101,
     }
 }

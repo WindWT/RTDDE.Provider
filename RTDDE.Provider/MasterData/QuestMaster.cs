@@ -106,6 +106,7 @@ namespace RTDDE.Provider.MasterData
         public int gl2;
         public int gda2;
         public uint mq;
+        public uint dr;
 
         public int id {
             get {
@@ -962,6 +963,18 @@ namespace RTDDE.Provider.MasterData
             set
             {
                 this.mq = value;
+            }
+        }
+
+        public uint damage_rate
+        {
+            get
+            {
+                return this.dr;
+            }
+            set
+            {
+                this.dr = value;
             }
         }
 

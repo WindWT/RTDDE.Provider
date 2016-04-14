@@ -139,6 +139,8 @@ namespace RTDDE.Provider.Enums
         DRAGON_KLILLER_PANEL = 131,
         CONVERT_LIFE_HEAL_TO_ATK = 132,
         AUTO_BARRIER = 133,
-        MAX = 134,
+        MULTI_ELEMENT_ATTACK_ENHANCE = 134,
+        CLASS_NUM_ATTACK_ENHANCE = 135,
+        MAX = 136,
     }
 }

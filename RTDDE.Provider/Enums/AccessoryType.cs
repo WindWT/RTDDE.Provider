@@ -38,6 +38,7 @@ namespace RTDDE.Provider.Enums
         CHASE_DAMAGE_UP,
         COUNTER_DAMAGE_UP,
         INITIAL_SOUL_GRADEUP,
+        ADD_EXTRA_ATTACK,
         MAX,
     }
 }

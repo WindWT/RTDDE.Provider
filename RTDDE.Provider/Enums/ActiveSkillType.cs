@@ -98,6 +98,8 @@ namespace RTDDE.Provider.Enums
         UnlimitedLeader = 89,
         REFLECTION_BURST = 90,
         ATTACK_COUNT_UP_HART = 91,
-        MAX = 92,
+        RATIO_DAMAGE_ATK_RATE_UP = 92,
+        LIMIT_LIFE_UP = 93,
+        MAX = 94,
     }
 }
