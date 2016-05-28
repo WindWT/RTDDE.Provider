@@ -18,5 +18,7 @@ namespace RTDDE.Provider.MasterData
         public string icon_01;
         public string icon_02;
         public string icon_03;
+        public string icon_04;
+        public string icon_05;
     }
 }

@@ -141,6 +141,9 @@ namespace RTDDE.Provider.Enums
         AUTO_BARRIER = 133,
         MULTI_ELEMENT_ATTACK_ENHANCE = 134,
         CLASS_NUM_ATTACK_ENHANCE = 135,
-        MAX = 136,
+        DEFENCE_DOWN_ATTACK = 136,
+        ATTACK_ENHANCE_ENEMY_LIFE = 137,
+        ALL_STATUS_UP_BY_KILL_ENEMY = 138,
+        MAX = 139,
     }
 }
