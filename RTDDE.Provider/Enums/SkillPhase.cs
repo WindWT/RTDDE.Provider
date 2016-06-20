@@ -8,7 +8,7 @@ namespace RTDDE.Provider.Enums
     public enum SkillPhase
     {
         MOVE = 1,
-        BATTLE,
-        ALL
+        BATTLE = 2,
+        ALL = 3,
     }
 }

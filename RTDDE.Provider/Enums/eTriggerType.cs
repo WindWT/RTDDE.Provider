@@ -2,7 +2,9 @@
 {
     public enum eTriggerType
     {
-        BATTLE_START = 1,
-        LIFE_REDUCE = 2,
+        UNDEFINED,
+        BATTLE_START,
+        LIFE_REDUCE,
+        MAX,
     }
 }

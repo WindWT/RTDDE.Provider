@@ -100,6 +100,10 @@ namespace RTDDE.Provider.Enums
         ATTACK_COUNT_UP_HART = 91,
         RATIO_DAMAGE_ATK_RATE_UP = 92,
         LIMIT_LIFE_UP = 93,
-        MAX = 94,
+        EnhancePartyAtkLifeRec = 94,
+        EnemyDmgAndDoubleAttack = 95,
+        EnemyDmgAndEnhancePtAtk = 96,
+        EnemyDmgAndCriticalAtk = 97,
+        MAX = 98,
     }
 }

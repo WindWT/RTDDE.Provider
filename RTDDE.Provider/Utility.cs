@@ -168,7 +168,10 @@ namespace RTDDE.Provider
             new EnemyEffectAssign(324, "ef_atk_magic_08", null),
             new EnemyEffectAssign(118, "ef_atk_blade_09", null),
             new EnemyEffectAssign(223, "ef_atk_blade_09", null),
-            new EnemyEffectAssign(325, "ef_atk_blade_09", null)
+            new EnemyEffectAssign(325, "ef_atk_blade_09", null),
+            new EnemyEffectAssign(119, "ef_atk_spear_12", null),
+            new EnemyEffectAssign(17, "ef_atk_spear_05", null),
+            new EnemyEffectAssign(224, "ef_atk_arrow_12", null)
         };
         #endregion
         public static AssignID ParseUnitKind(int kind) {
@@ -324,6 +327,8 @@ namespace RTDDE.Provider
                 case 14: realBgmName = "18 TREE"; break;
                 case 15: realBgmName = "19 CAKE"; break;
                 case 16: realBgmName = "20 TART"; break;
+                case 17: realBgmName = "???(DSG)"; break;
+                case 18: realBgmName = "???(DSG)"; break;
                 default: realBgmName = "UNKNOWN"; break;
             }
             return realBgmName + $"({no.ToString("D2")})";
