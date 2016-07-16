@@ -329,6 +329,11 @@ namespace RTDDE.Provider
                 case 16: realBgmName = "20 TART"; break;
                 case 17: realBgmName = "???(DSG)"; break;
                 case 18: realBgmName = "???(DSG)"; break;
+                case 19: realBgmName = "15 ANCIENT"; break;
+                case 20: realBgmName = "09 FEEL"; break;
+                case 21: realBgmName = "08 GRAY"; break;
+                case 22: realBgmName = "17 MASK DE V"; break;
+                case 23: realBgmName = "10 NEUTRAL"; break;
                 default: realBgmName = "UNKNOWN"; break;
             }
             return realBgmName + $"({no.ToString("D2")})";
