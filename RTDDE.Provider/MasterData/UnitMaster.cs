@@ -32,6 +32,7 @@ namespace RTDDE.Provider.MasterData
         public int us;
         public int ud;
         public int m;
+        public int ecf;
         public int ne;
         public int se;
         public int gr;
@@ -335,6 +336,18 @@ namespace RTDDE.Provider.MasterData
             set
             {
                 this.m = value;
+            }
+        }
+
+        public int ev_clear_flag
+        {
+            get
+            {
+                return this.ecf;
+            }
+            set
+            {
+                this.ecf = value;
             }
         }
 

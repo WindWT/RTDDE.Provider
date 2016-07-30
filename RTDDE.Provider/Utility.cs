@@ -23,7 +23,7 @@ namespace RTDDE.Provider
                 FontGlyphs = packer.Unpack(stream);
             }
         }
-        
+
         public static string ParsePresentType(int type) {
             switch (type) {
                 case 0: return "NONE";
@@ -171,7 +171,11 @@ namespace RTDDE.Provider
             new EnemyEffectAssign(325, "ef_atk_blade_09", null),
             new EnemyEffectAssign(119, "ef_atk_spear_12", null),
             new EnemyEffectAssign(17, "ef_atk_spear_05", null),
-            new EnemyEffectAssign(224, "ef_atk_arrow_12", null)
+            new EnemyEffectAssign(224, "ef_atk_arrow_12", null),
+            new EnemyEffectAssign(18, "ef_atk_blade_11", null),
+            new EnemyEffectAssign(326, "ef_atk_magic_03", null),
+            new EnemyEffectAssign(327, "ef_atk_magic_03", null),
+            new EnemyEffectAssign(328, "ef_atk_magic_09", null)
         };
         #endregion
         public static AssignID ParseUnitKind(int kind) {
@@ -194,6 +198,9 @@ namespace RTDDE.Provider
         }
         public static string ParseQuestKind(int kind) {
             return ((E_QUEST_KIND)kind).ToString();
+        }
+        public static string ParseHelperType(int kind) {
+            return ((E_HELPER_TYPE)kind).ToString();
         }
         public static string ParseChallengeType(int type) {
             return ((ECHALLENGE_TYPE)type).ToString();
