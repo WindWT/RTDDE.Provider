@@ -104,6 +104,14 @@ namespace RTDDE.Provider.Enums
         EnemyDmgAndDoubleAttack = 95,
         EnemyDmgAndEnhancePtAtk = 96,
         EnemyDmgAndCriticalAtk = 97,
-        MAX = 98,
+        AttrEnhancePtAtk = 98,
+        AttrEnhanceAttrAtk = 99,
+        AttrEnhancePtDef = 100,
+        AttrEnhanceLifeMax = 101,
+        AttrSpDefence = 102,
+        AttrDelayEnemyTurn = 103,
+        AttrChangePanel = 104,
+        AttrDamage = 105,
+        MAX = 106,
     }
 }
