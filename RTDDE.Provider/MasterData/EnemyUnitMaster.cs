@@ -34,6 +34,7 @@ namespace RTDDE.Provider.MasterData
         public int ui;
         public short atk_ef_id;
         public uint logic_group_id;
+        public int survive;
         public int pat;
         public int p0;
         public int p1;

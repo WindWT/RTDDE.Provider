@@ -12,6 +12,8 @@ namespace RTDDE.Provider.MasterData
         public int type;
         public string name;
         public string detail;
+        public int specified_attr;
+        public int specified_style;
         public int num_01;
         public int num_02;
         public int num_03;

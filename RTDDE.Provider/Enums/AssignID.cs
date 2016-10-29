@@ -96,6 +96,7 @@ namespace RTDDE.Provider.Enums
         FLT_ARTIFACT,
         POK_FLT_STICK,
         STD,
+        TWO_SWORD_02,
         PLAYER_END,
         MS01SLA,
         MS01SQU,

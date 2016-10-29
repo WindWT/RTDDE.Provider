@@ -112,6 +112,10 @@ namespace RTDDE.Provider.Enums
         AttrDelayEnemyTurn = 103,
         AttrChangePanel = 104,
         AttrDamage = 105,
-        MAX = 106,
+        LimitClassPowerUp = 106,
+        LimitPartyPowerUp = 107,
+        LimitHealPowerUp = 108,
+        RandomSkillExec = 109,
+        MAX = 110,
     }
 }

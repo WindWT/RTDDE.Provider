@@ -86,7 +86,8 @@ namespace RTDDE.Provider
         }
         #region AssignID
 
-        public static readonly EnemyEffectAssign[] m_EffectList = new EnemyEffectAssign[] {
+        public static readonly EnemyEffectAssign[] m_EffectList = new EnemyEffectAssign[]
+        {
             new EnemyEffectAssign(1, "ef_atk_blade_01", null),
             new EnemyEffectAssign(2, "ef_atk_blade_02", null),
             new EnemyEffectAssign(101, "ef_atk_spear_01", null),
@@ -175,7 +176,8 @@ namespace RTDDE.Provider
             new EnemyEffectAssign(18, "ef_atk_blade_11", null),
             new EnemyEffectAssign(326, "ef_atk_magic_03", null),
             new EnemyEffectAssign(327, "ef_atk_magic_03", null),
-            new EnemyEffectAssign(328, "ef_atk_magic_09", null)
+            new EnemyEffectAssign(328, "ef_atk_magic_09", null),
+            new EnemyEffectAssign(19, "ef_atk_blade_12", null)
         };
         #endregion
         public static AssignID ParseUnitKind(int kind) {

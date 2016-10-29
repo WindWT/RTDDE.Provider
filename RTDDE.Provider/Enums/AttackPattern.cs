@@ -22,6 +22,7 @@ namespace RTDDE.Provider.Enums
         SHUFFLE_DOWN_SOUL,
         SEAL_SKILL,
         PANEL_DIFFER_COUNTER,
+        LIFE_HEAL,
         MAX,
     }
 }
