@@ -86,8 +86,7 @@ namespace RTDDE.Provider
         }
         #region AssignID
 
-        public static readonly EnemyEffectAssign[] m_EffectList = new EnemyEffectAssign[]
-        {
+        public static readonly EnemyEffectAssign[] m_EffectList = new EnemyEffectAssign[] {
             new EnemyEffectAssign(1, "ef_atk_blade_01", null),
             new EnemyEffectAssign(2, "ef_atk_blade_02", null),
             new EnemyEffectAssign(101, "ef_atk_spear_01", null),

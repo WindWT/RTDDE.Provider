@@ -58,9 +58,12 @@ namespace RTDDE.Provider.MasterData
         public int og8;
         public int oi;
         public int op;
+        public uint rod;
+        public uint rodw;
         public uint b;
         public uint be;
         public int bt;
+        public uint bodw;
         public int ps;
         public int pl;
         public int pa;
@@ -683,6 +686,30 @@ namespace RTDDE.Provider.MasterData
             }
         }
 
+        public uint regular_open_day
+        {
+            get
+            {
+                return this.rod;
+            }
+            set
+            {
+                this.rod = value;
+            }
+        }
+
+        public uint reqular_open_day_week
+        {
+            get
+            {
+                return this.rodw;
+            }
+            set
+            {
+                this.rodw = value;
+            }
+        }
+
         public uint bonus_start
         {
             get
@@ -716,6 +743,18 @@ namespace RTDDE.Provider.MasterData
             set
             {
                 this.bt = value;
+            }
+        }
+
+        public uint bonus_open_day_week
+        {
+            get
+            {
+                return this.bodw;
+            }
+            set
+            {
+                this.bodw = value;
             }
         }
 
