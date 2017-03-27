@@ -58,6 +58,7 @@ namespace RTDDE.Provider.MasterData
         public string sc6;
         public string ast;
         public string mbt;
+        public string lt;
         public string icon_name;
         //public UIAtlas cutin_atlas;
         public string cutin_name1;
@@ -648,6 +649,18 @@ namespace RTDDE.Provider.MasterData
             set
             {
                 this.trv = value;
+            }
+        }
+
+        public string last_text
+        {
+            get
+            {
+                return this.lt;
+            }
+            set
+            {
+                this.lt = value;
             }
         }
     }
